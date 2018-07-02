@@ -1,0 +1,6 @@
+person:
+    age: 10
+    name: aa
+    num:
+      - 1
+      - 2
