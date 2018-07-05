@@ -1,6 +1,8 @@
 package springboot.learn.springboot02config.bean;
 
 import java.util.List;
+import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -11,12 +13,15 @@ import org.springframework.stereotype.Component;
  * @author shaoyijiong
  * @since 2018/7/2
  */
+@Data
 @Component
 @ConfigurationProperties()
 public class Person {
 
   private List<Integer> num;
   private String name;
+
+  @Value("${person.age}")
   private Integer age;
 
   @Override
