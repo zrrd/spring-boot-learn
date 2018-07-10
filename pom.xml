@@ -12,6 +12,7 @@
         <module>spring-boot-01-helloworld</module>
         <module>spring-boot-02-config</module>
         <module>spring-boot-03-logging</module>
+        <module>spring-boot-04-web-restfulcrud</module>
     </modules>
 
     <build>
