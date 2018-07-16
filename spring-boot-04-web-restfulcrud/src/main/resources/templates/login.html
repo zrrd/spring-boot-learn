@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>登录页面</title>
+<link th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}"/>
+</head>
+<body>
+<form>
+    <label th:text="#{login.tip}"></label>
+    <label>
+        <input name="username" type="text" class="form-control"/>
+    </label>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</body>
+</html>

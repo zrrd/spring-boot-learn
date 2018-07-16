@@ -19,7 +19,7 @@ public class HelloController {
     return "hello world";
   }
 
-  @RequestMapping("/ok")
+  @RequestMapping("/success")
   public String success(){
     return "success";
   }
