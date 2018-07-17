@@ -6,7 +6,7 @@ import java.util.Date;
 import lombok.Data;
 
 
-/**
+/**.
  * steam实体类
  *
  * @author win

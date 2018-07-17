@@ -5,8 +5,11 @@
 <link th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}"/>
 </head>
 <body>
-<form>
+<form method="post" th:action="@{/user/login}">
     <label th:text="#{login.tip}"></label>
+    <label>
+        <p th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+    </label>
     <label>
         用户名
         <input name="username" type="text" class="form-control"/>
