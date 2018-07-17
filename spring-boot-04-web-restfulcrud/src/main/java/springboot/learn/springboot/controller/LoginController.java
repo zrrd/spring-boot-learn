@@ -29,16 +29,22 @@ public class LoginController {
   public String login(String username, String password, HttpSession session,
       Map<String, String> map) {
     if (StringUtils.isNotBlank(username) && "123456".equals(password)) {
-      session.setAttribute("username", username);
-      return "index";
+      session.setAttribute("loginUser", username);
+      //防止表单重复提交
+      return "redirect:/main.html";
     } else {
       map.put("msg", "用户名或密码错误");
       return "login";
     }
   }
 
-  @GetMapping
+  @GetMapping("/login")
   public String login() {
     return "login";
+  }
+
+  @GetMapping("/main")
+  public String main() {
+    return "main";
   }
 }
