@@ -1,7 +1,9 @@
 package springboot.learn.springboot.model;
 
 import com.baomidou.mybatisplus.activerecord.Model;
+
 import java.io.Serializable;
+
 import lombok.Data;
 
 /**
@@ -11,7 +13,7 @@ import lombok.Data;
  * @date 2018-6-30
  */
 @Data
-public class User extends Model<User>{
+public class User extends Model<User> {
 
   private Integer id;
 

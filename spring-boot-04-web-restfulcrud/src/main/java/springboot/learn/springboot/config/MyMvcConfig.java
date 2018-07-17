@@ -13,20 +13,21 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  */
 @Configuration
 public class MyMvcConfig extends WebMvcConfigurerAdapter {
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/hi").setViewName("success");
-    }
 
-    @Bean
-    public WebMvcConfigurerAdapter webMvcConfigurerAdapter(){
-        WebMvcConfigurerAdapter adapter = new WebMvcConfigurerAdapter() {
-            @Override
-            public void addViewControllers(ViewControllerRegistry registry) {
-                registry.addViewController("/").setViewName("login");
-                registry.addViewController("/index.html").setViewName("login");
-            }
-        };
-        return adapter;
-    }
+  @Override
+  public void addViewControllers(ViewControllerRegistry registry) {
+    registry.addViewController("/hi").setViewName("success");
+  }
+
+  @Bean
+  public WebMvcConfigurerAdapter webMvcConfigurerAdapter() {
+    WebMvcConfigurerAdapter adapter = new WebMvcConfigurerAdapter() {
+      @Override
+      public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("login");
+        registry.addViewController("/index.html").setViewName("login");
+      }
+    };
+    return adapter;
+  }
 }

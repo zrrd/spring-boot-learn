@@ -13,7 +13,7 @@ import lombok.Data;
  * @date 2018-6-30
  */
 @Data
-public class Steam extends Model<Steam>{
+public class Steam extends Model<Steam> {
 
   private Integer id;
 

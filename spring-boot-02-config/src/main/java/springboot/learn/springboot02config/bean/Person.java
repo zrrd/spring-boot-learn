@@ -7,8 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
- * 配置测试
- * 将配置中的属性通过ConfigurationProperties 映射到类中去
+ * 配置测试 将配置中的属性通过ConfigurationProperties 映射到类中去
  *
  * @author shaoyijiong
  * @since 2018/7/2

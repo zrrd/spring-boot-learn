@@ -1,8 +1,10 @@
 package springboot.learn.springboot.model;
 
 import com.baomidou.mybatisplus.activerecord.Model;
+
 import java.io.Serializable;
 import java.util.Date;
+
 import lombok.Data;
 
 /**
@@ -12,7 +14,7 @@ import lombok.Data;
  * @date 2018/6/30
  */
 @Data
-public class Game extends Model<Game>{
+public class Game extends Model<Game> {
 
   private Integer id;
 

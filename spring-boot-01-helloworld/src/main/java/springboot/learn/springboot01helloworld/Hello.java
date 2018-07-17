@@ -7,4 +7,5 @@ package springboot.learn.springboot01helloworld;
  * @since 2018/6/28
  */
 public class Hello {
+
 }
