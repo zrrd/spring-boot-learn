@@ -28,8 +28,11 @@
       <td th:text="${#dates.format(game.publishDate,'yyyy-MM-dd')}"></td>
       <td th:text="${game.score}"></td>
       <td>
-        <button>编辑</button>
-        <button>删除</button>
+        <a th:href="@{/game/}+${game.id}">编辑</a>
+        <form th:action="@{/game/}+${game.id}" method="post">
+          <input type="hidden" name="_method" value="delete"/>
+          <button type="submit">删除</button>
+        </form>
       </td>
     </tr>
     </tbody>

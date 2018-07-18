@@ -35,4 +35,8 @@ public class Game extends Model<Game> {
 
   public Game() {
   }
+
+  public Game(Integer id) {
+    this.id = id;
+  }
 }
