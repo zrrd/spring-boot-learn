@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Title</title>
+<link th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}"/>
+</head>
+<body>
+<div>
+  <h2>
+    <a th:href="@{/game}">添加游戏</a>
+  </h2>
+  <table>
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>游戏名</th>
+      <th>游戏价格</th>
+      <th>发售时间</th>
+      <th>游戏评分</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="game:${games}">
+      <td th:text="${game.id}"></td>
+      <td th:text="${game.name}"></td>
+      <td th:text="${game.price}"></td>
+      <td th:text="${#dates.format(game.publishDate,'yyyy-MM-dd')}"></td>
+      <td th:text="${game.score}"></td>
+      <td>
+        <button>编辑</button>
+        <button>删除</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

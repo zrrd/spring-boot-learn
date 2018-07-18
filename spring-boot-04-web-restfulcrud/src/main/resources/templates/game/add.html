@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Title</title>
+</head>
+<body>
+<h2>
+  添加游戏
+</h2>
+<form th:action="@{/game}" method="post">
+  <label>
+    游戏名
+    <input type="text" name="name"/>
+  </label>
+  <br/>
+  <label>
+    游戏价格
+    <!--保证可以输入浮点型数字-->
+    <input type="number" step="0.01" name="price"/>
+  </label>
+  <br/>
+  <label>
+    发售日期
+    <input type="date" name="publishDate"/>
+  </label>
+  <br/>
+  <label>
+    分数
+    <input type="number" step="0.1" name="score"/>
+  </label>
+  <br/>
+  <button type="submit">提交</button>
+</form>
+</body>
+</html>

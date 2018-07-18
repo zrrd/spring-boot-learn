@@ -4,15 +4,18 @@ import com.baomidou.mybatisplus.activerecord.Model;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 
-/**.
- * steam实体类
+/**
+ * steam实体类.
  *
  * @author win
  * @date 2018-6-30
  */
-@Data
+@Getter
+@Setter
 public class Steam extends Model<Steam> {
 
   private Integer id;

@@ -6,5 +6,6 @@
 <body>
   <h1>欢迎</h1>
   <p th:text="${session.loginUser}">[[${session.loginUser}]]</p>
+  <a th:href="@{/games}">游戏</a>
 </body>
 </html>

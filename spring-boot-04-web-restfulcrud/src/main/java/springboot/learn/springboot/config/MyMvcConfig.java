@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import springboot.learn.springboot.compent.LoginHandlerInterceptor;
 
 /**
- * SpringMvc额外配置
+ * SpringMvc额外配置.
  *
  * @author shaoyijiong
  * @date 2018/7/11
