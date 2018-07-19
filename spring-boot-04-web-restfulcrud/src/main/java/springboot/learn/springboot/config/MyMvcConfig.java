@@ -1,5 +1,9 @@
 package springboot.learn.springboot.config;
 
+import org.springframework.boot.autoconfigure.jms.artemis.ArtemisProperties.Embedded;
+import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
+import org.springframework.boot.context.embedded.EmbeddedServletContainer;
+import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -39,5 +43,19 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
       }
     };
     return adapter;
+  }
+
+
+  @Bean
+  public EmbeddedServletContainerCustomizer embeddedServletContainerCustomizer() {
+    return new EmbeddedServletContainerCustomizer() {
+
+      //定制嵌入式servlet容器相关规则
+      @Override
+      public void customize(
+          ConfigurableEmbeddedServletContainer container) {
+        container.setPort(8083);
+      }
+    };
   }
 }
