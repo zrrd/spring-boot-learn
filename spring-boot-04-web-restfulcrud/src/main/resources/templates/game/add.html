@@ -9,25 +9,27 @@
   添加游戏
 </h2>
 <form th:action="@{/game}" method="post">
+  <input type="hidden" name="_method" value="put" th:if="${game!=null}"/>
+  <input type="hidden" name="id" th:value="${game.id}" th:if="${game!=null}"/>
   <label>
     游戏名
-    <input type="text" name="name"/>
+    <input type="text" name="name" th:value="${game!=null}?${game.name}"/>
   </label>
   <br/>
   <label>
     游戏价格
     <!--保证可以输入浮点型数字-->
-    <input type="number" step="0.01" name="price"/>
+    <input type="number" step="0.01" name="price"  th:value="${game!=null}?${game.price}"/>
   </label>
   <br/>
   <label>
     发售日期
-    <input type="date" name="publishDate"/>
+    <input type="date" name="publishDate" th:value="${game!=null}?${#dates.format(game.publishDate,'yyyy-MM-dd')}"/>
   </label>
   <br/>
   <label>
     分数
-    <input type="number" step="0.1" name="score"/>
+    <input type="number" step="0.1" name="score" th:value="${game!=null}?${game.score}"/>
   </label>
   <br/>
   <button type="submit">提交</button>

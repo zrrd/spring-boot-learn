@@ -3,8 +3,11 @@ package springboot.learn.springboot.config;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import springboot.learn.springboot.model.Game;
 
 /**
@@ -48,6 +51,33 @@ public class GameController {
   @PostMapping("/game")
   public String add(Game game) {
     game.insert();
+    return "redirect:/games";
+  }
+
+  /**
+   * 查出当前员工,在页面回显.
+   *
+   * @return 修改员工页面
+   */
+  @GetMapping("/game/{id}")
+  public String toEditPage(@PathVariable Integer id, Model model) {
+    Game game = new Game(id);
+    game = game.selectById();
+    model.addAttribute("game", game);
+    //回到修改页面,就是增加页面\
+    return "game/add";
+  }
+
+  @PutMapping("/game")
+  public String updateGame(Game game) {
+    game.updateById();
+    return "redirect:/games";
+  }
+
+  @DeleteMapping("/game/{id}")
+  public String deleteGame(@PathVariable Integer id) {
+    Game game = new Game(id);
+    game.deleteById();
     return "redirect:/games";
   }
 }
