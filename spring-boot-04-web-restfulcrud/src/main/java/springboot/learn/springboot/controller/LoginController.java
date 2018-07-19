@@ -6,9 +6,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import springboot.learn.springboot.controller.exception.LoginException;
 
 /**
- * 登录
+ * 登录.
  *
  * @author shaoyijiong
  * @date 2018/7/17
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class LoginController {
 
   /**
-   * 登录请求
+   * 登录请求.
    *
    * @param username 用户名
    * @param password 密码
@@ -33,8 +34,8 @@ public class LoginController {
       //防止表单重复提交
       return "redirect:/main.html";
     } else {
-      map.put("msg", "用户名或密码错误");
-      return "login";
+      //状态码为10000
+      throw new LoginException();
     }
   }
 

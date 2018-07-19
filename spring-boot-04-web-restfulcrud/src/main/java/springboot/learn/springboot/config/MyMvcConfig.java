@@ -34,8 +34,8 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
       @Override
       public void addInterceptors(InterceptorRegistry registry) {
         //将自己的登陆拦截器放进来
-        registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-            .excludePathPatterns("/login", "/", "index.html", "/user/login");
+        /*registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
+                    .excludePathPatterns("/login", "/", "index.html", "/user/login");*/
       }
     };
     return adapter;
