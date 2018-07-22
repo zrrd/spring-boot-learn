@@ -13,6 +13,8 @@
         <module>spring-boot-02-config</module>
         <module>spring-boot-03-logging</module>
         <module>spring-boot-04-web-restfulcrud</module>
+        <module>spring-boot-06-data-jdbc</module>
+        <module>spring-boot-06-data-mybatis</module>
     </modules>
 
     <build>
