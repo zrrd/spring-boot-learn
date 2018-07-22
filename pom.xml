@@ -15,6 +15,7 @@
         <module>spring-boot-04-web-restfulcrud</module>
         <module>spring-boot-06-data-jdbc</module>
         <module>spring-boot-06-data-mybatis</module>
+        <module>spring-boot-06-data-jpa</module>
     </modules>
 
     <build>
