@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/games?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+#mybatis 驼峰和下划线的转换
+mybatis:
+  configuration:
+   map-underscore-to-camel-case: true
+  #config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
