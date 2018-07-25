@@ -1,4 +1,4 @@
-package cn.learn.cache;
+package cn.learn.springboot06;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SpringBoot07CacheApplicationTests {
+public class SpringBoot06DataMybatisApplicationTests {
 
 	@Test
 	public void contextLoads() {
