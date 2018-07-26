@@ -18,6 +18,7 @@
         <module>spring-boot-06-data-jpa</module>
         <module>spring-boot-07</module>
         <module>spring-boot-08-cache</module>
+        <module>spring-boot-tips</module>
     </modules>
 
     <build>
