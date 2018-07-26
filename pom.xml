@@ -16,7 +16,6 @@
         <module>spring-boot-06-data-jdbc</module>
         <module>spring-boot-06-data-mybatis</module>
         <module>spring-boot-06-data-jpa</module>
-        <module>spring-boot-07-cache</module>
         <module>spring-boot-07</module>
         <module>spring-boot-08-cache</module>
         <module>spring-boot-tips</module>

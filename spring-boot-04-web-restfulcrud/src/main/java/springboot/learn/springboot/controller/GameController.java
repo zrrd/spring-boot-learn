@@ -1,4 +1,4 @@
-package springboot.learn.springboot.config;
+package springboot.learn.springboot.controller;
 
 import java.util.List;
 import org.springframework.stereotype.Controller;
