@@ -1,18 +1,15 @@
 package springboot.learn.springboot.config;
 
-import org.springframework.boot.autoconfigure.jms.artemis.ArtemisProperties.Embedded;
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
-import org.springframework.boot.context.embedded.EmbeddedServletContainer;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import springboot.learn.springboot.compent.LoginHandlerInterceptor;
 
 /**
- * SpringMvc额外配置.
+ * 使用WebMvcConfigurerAdapter可以来扩展SpringMVC的功能.
  *
  * @author shaoyijiong
  * @date 2018/7/11
@@ -25,6 +22,27 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
     registry.addViewController("/hi").setViewName("success");
   }
 
+
+  /**
+   * 定制嵌入式 servlet 容器的参数. (tomcat jetty 等)
+   */
+  @Bean
+  public EmbeddedServletContainerCustomizer embeddedServletContainerCustomizer() {
+    return new EmbeddedServletContainerCustomizer() {
+
+      //定制嵌入式servlet容器相关规则
+      @Override
+      public void customize(
+          ConfigurableEmbeddedServletContainer container) {
+        container.setPort(8083);
+      }
+    };
+  }
+
+
+  /**
+   * 这个相当于整个.
+   */
   @Bean
   public WebMvcConfigurerAdapter webMvcConfigurerAdapter() {
     WebMvcConfigurerAdapter adapter = new WebMvcConfigurerAdapter() {
@@ -45,17 +63,4 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
     return adapter;
   }
 
-
-  @Bean
-  public EmbeddedServletContainerCustomizer embeddedServletContainerCustomizer() {
-    return new EmbeddedServletContainerCustomizer() {
-
-      //定制嵌入式servlet容器相关规则
-      @Override
-      public void customize(
-          ConfigurableEmbeddedServletContainer container) {
-        container.setPort(8083);
-      }
-    };
-  }
 }

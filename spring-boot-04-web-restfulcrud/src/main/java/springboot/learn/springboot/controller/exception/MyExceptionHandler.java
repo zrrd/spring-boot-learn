@@ -20,7 +20,7 @@ public class MyExceptionHandler {
    * 异常处理器.
    *
    * @param e 自定义的异常全部通过这个处理器处理
-   * @return 自定义的异常信息,json格式
+   * @return 自定义的异常信息, json格式
    */
   @ResponseBody
   @ExceptionHandler(BaseException.class)

@@ -64,7 +64,7 @@ public class GameController {
     Game game = new Game(id);
     game = game.selectById();
     model.addAttribute("game", game);
-    //回到修改页面,就是增加页面\
+    //回到修改页面,就是增加页面
     return "game/add";
   }
 
