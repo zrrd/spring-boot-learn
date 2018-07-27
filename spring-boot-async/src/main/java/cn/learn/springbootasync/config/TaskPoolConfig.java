@@ -1,0 +1,28 @@
+package cn.learn.springbootasync.config;
+
+import java.util.concurrent.Executor;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+/**
+ * 通过线程池的方式,管理异步.
+ *
+ * @author shaoyijiong
+ * @date 2018/7/27
+ */
+@Configuration
+public class TaskPoolConfig {
+
+  /**
+   * 通过该线程池来管理异步调用的方法执行.
+   */
+  @Bean("taskExecutor")
+  public Executor taskExecutor() {
+    //自定义线程池
+    return new ThreadPoolExecutor(5, 200, 0L, TimeUnit.MILLISECONDS,
+        new LinkedBlockingDeque<>(1024), new ThreadPoolExecutor.AbortPolicy());
+  }
+}
