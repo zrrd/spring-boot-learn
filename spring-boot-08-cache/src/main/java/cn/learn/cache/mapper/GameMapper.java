@@ -39,4 +39,17 @@ public interface GameMapper {
   @Insert("insert into game(name,price,publish_date,score) values(#{name},#{price},#{publishDate},"
       + "#{score})")
   public int insertGame(Game game);
+
+  /**
+   * 根据name查询游戏.
+   */
+  @Select("select * from game where name = #{name}")
+  public Game getGameByName(String name);
+
+  /**
+   * 根据score查询游戏.
+   */
+  @Select("select * from game where score = #{score}")
+  public Game getGameByScore(Double score);
+
 }

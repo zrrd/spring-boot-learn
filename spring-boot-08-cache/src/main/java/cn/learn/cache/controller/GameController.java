@@ -25,8 +25,19 @@ public class GameController {
     return gameService.selectById(id);
   }
 
+  @GetMapping("/game/name/{name}")
+  public Game getGame(@PathVariable String name) {
+    return gameService.getByName(name);
+  }
+
   @GetMapping("/game")
   public Game updateGam(Game game) {
     return gameService.updadeGame(game);
   }
+
+  @GetMapping("/game/score/{score}")
+  public Game getGameByScore(@PathVariable Double score) {
+    return gameService.getByScore(score);
+  }
+
 }
