@@ -15,7 +15,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Game implements Serializable{
+public class Game implements Serializable {
 
   private Integer id;
   private String name;

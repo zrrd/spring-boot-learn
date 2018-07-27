@@ -1,6 +1,5 @@
 package cn.learn.cache.config;
 
-import cn.learn.cache.bean.Game;
 import java.net.UnknownHostException;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
