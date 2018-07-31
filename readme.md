@@ -7,5 +7,8 @@
 6.  spring-boot-06-data-mybatis    SpringBoot 与 mybaits 的整合(通过注解的方式实现)
 7.  spring-boot-07-data-jpa        通过 jpa 简化数据库开发
 8.  spring-boot-08-cache           通过自带的 simpleCache 与 redis 实现缓存
+9.  spring-boot-09-rocketmq        消息中间件rocketmq的部署和使用技巧
+10. spring-boot-async              SpringBoot 自带的异步调用方式
+11. spring-boot-jwt                通过jwt的方式对登录的验证
 9.  spring-boot-swagger2           通过swagger2来自动构建接口文档
 10. spring-boot-tips               Spring-Boot 小技巧
