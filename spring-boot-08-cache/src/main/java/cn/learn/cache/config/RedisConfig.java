@@ -34,7 +34,7 @@ public class RedisConfig {
       RedisConnectionFactory redisConnectionFactory) throws UnknownHostException {
     RedisTemplate<Object, Object> template = new RedisTemplate<>();
 
-    //FastJson 序列化器
+    //FastJson 序列化器  redis专用的哦
     FastJsonRedisSerializer<Object> fastJsonRedisSerializer = new FastJsonRedisSerializer<>(
         Object.class);
     // value值的序列化采用fastJsonRedisSerializer
