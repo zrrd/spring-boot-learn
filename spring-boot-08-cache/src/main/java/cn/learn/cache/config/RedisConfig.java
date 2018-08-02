@@ -1,47 +1,62 @@
 package cn.learn.cache.config;
 
+import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
 import java.net.UnknownHostException;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
- * redis的config.
+ * redis的config. ConditionalOnClass 在导入类redis相关依赖才会生效
  *
  * @author shaoyijiong
  * @date 2018/7/27
  */
 @Configuration
+@ConditionalOnClass(RedisOperations.class)
+@EnableConfigurationProperties(RedisProperties.class)
 public class RedisConfig {
 
   /**
-   * 通过json的方式来序列化对象,redis默认是jdk序列化.
-   * Primay默认的缓存管理器
+   * RedisTemplate 配置.
    */
-  @Primary
   @Bean
-  public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) throws UnknownHostException {
-    RedisTemplate<Object, Object> template = new RedisTemplate();
+  @ConditionalOnMissingBean(name = "redisTemplate")
+  public RedisTemplate<Object, Object> redisTemplate(
+      RedisConnectionFactory redisConnectionFactory) throws UnknownHostException {
+    RedisTemplate<Object, Object> template = new RedisTemplate<>();
+
+    //FastJson 序列化器
+    FastJsonRedisSerializer<Object> fastJsonRedisSerializer = new FastJsonRedisSerializer<>(
+        Object.class);
+    // value值的序列化采用fastJsonRedisSerializer
+    template.setValueSerializer(fastJsonRedisSerializer);
+    template.setHashValueSerializer(fastJsonRedisSerializer);
+    // key的序列化采用StringRedisSerializer
+    template.setKeySerializer(new StringRedisSerializer());
+    template.setHashKeySerializer(new StringRedisSerializer());
     template.setConnectionFactory(redisConnectionFactory);
-    template.setDefaultSerializer(new Jackson2JsonRedisSerializer<>(Object.class));
     return template;
   }
 
   /**
-   * 通过缓存管理器手动存.
+   * StringRedisTemplate 配置.
    */
   @Bean
-  public RedisCacheManager redisCacheManager(RedisTemplate<Object, Object> redisTemplate) {
-    RedisCacheManager redisCacheManager = new RedisCacheManager(redisTemplate);
-
-    //key的前缀
-    //设置前缀 默认将CacheName作为前缀
-    redisCacheManager.setUsePrefix(true);
-    return redisCacheManager;
-
+  @ConditionalOnMissingBean
+  public StringRedisTemplate stringRedisTemplate(
+      RedisConnectionFactory redisConnectionFactory) throws UnknownHostException {
+    StringRedisTemplate template = new StringRedisTemplate();
+    template.setConnectionFactory(redisConnectionFactory);
+    return template;
   }
+
 }
