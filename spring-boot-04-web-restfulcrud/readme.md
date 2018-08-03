@@ -2,3 +2,4 @@
 2. SpringMVC 全局异常处理 定义返回给前端的异常格式
 3. SpringMVC 根据请求类型 解析请求 restful api (通过添加字段 给表单为添加 put)
 4. SpringMVC 国际化
+5. mybaits-plus 
