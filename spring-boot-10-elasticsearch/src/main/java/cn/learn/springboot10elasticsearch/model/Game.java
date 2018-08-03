@@ -4,17 +4,16 @@ import io.searchbox.annotations.JestId;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 /**
- * 游戏表.
+ * 游戏表. @Document SpringData的注解
  *
  * @author shaoyijiong
  * @date 2018/7/22
  */
 @Data
+@Document(indexName = "game_party",type = "game")
 public class Game implements Serializable {
 
   /**
