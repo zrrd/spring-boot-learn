@@ -1,4 +1,4 @@
-package cn.learn.springboottips.restTemplate.config;
+package cn.learn.springboottips.resttemplate.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;

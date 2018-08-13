@@ -1,4 +1,4 @@
-package cn.learn.springboottips.restTemplate;
+package cn.learn.springboottips.resttemplate;
 
 import lombok.Getter;
 import lombok.Setter;

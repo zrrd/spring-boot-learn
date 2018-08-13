@@ -1,6 +1,6 @@
-package cn.learn.springboottips.restTemplate.controller;
+package cn.learn.springboottips.resttemplate.controller;
 
-import cn.learn.springboottips.restTemplate.Response;
+import cn.learn.springboottips.resttemplate.Response;
 import com.alibaba.fastjson.JSONObject;
 import javax.annotation.Resource;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ import org.springframework.web.client.RestTemplate;
 public class TestController {
 
   @Resource
-  RestTemplate restTemplate;
+  private RestTemplate restTemplate;
 
   private static final String RESPONSE_JSON = "{'code':200,'message':'成功','data':"
       + "{'name':'小明','age':18}}";
