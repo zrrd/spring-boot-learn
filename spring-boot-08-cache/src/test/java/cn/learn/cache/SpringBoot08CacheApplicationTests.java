@@ -31,7 +31,7 @@ public class SpringBoot08CacheApplicationTests {
    */
   @Test
   public void test01() {
-    stringRedisTemplate.opsForValue().append("01", "张三");
+    stringRedisTemplate.opsForValue().append("02", "李四");
   }
 
   /**

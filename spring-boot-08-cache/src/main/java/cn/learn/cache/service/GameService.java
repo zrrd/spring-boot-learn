@@ -5,7 +5,6 @@ import cn.learn.cache.mapper.GameMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
-import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -39,7 +38,7 @@ public class GameService {
    * unless 符合条件不缓存 key默认是方法参数.
    */
 
-  @Cacheable(cacheNames = "game")
+  @Cacheable(cacheNames = "game" )
   public Game selectById(Integer id) {
     log.info("查询" + id + "号游戏");
     return gameMapper.getGameById(id);
