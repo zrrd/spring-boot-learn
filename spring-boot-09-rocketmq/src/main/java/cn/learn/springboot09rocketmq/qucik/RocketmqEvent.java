@@ -1,6 +1,7 @@
 package cn.learn.springboot09rocketmq.qucik;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.common.message.MessageExt;
@@ -18,18 +19,14 @@ public class RocketmqEvent extends ApplicationEvent {
   private DefaultMQPushConsumer consumer;
   private List<MessageExt> msgs;
 
-  public RocketmqEvent(List<MessageExt> msgs, DefaultMQPushConsumer consumer) throws Exception {
+  public RocketmqEvent(List<MessageExt> msgs, DefaultMQPushConsumer consumer) {
     super(msgs);
     this.consumer = consumer;
     this.setMsgs(msgs);
   }
 
   public String getMsg(int idx) {
-    try {
-      return new String(getMsgs().get(idx).getBody(), "utf-8");
-    } catch (UnsupportedEncodingException e) {
-      return null;
-    }
+    return new String(getMsgs().get(idx).getBody(), StandardCharsets.UTF_8);
   }
 
   public String getMsg(int idx, String code) {

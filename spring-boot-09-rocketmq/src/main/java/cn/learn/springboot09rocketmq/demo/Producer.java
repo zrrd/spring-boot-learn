@@ -1,5 +1,7 @@
 package cn.learn.springboot09rocketmq.demo;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.client.producer.SendResult;
@@ -31,13 +33,15 @@ public class Producer {
 
     //发送10条消息到Topic为TopicTest，tag为TagA，消息内容为“Hello RocketMQ”拼接上i的值
     for (int i = 0; i < 10; i++) {
+      SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+      String time = df.format(new Date());
       try {
         // topic
         Message msg = new Message("TopicTest",
             // tag
             "TagA",
             // body
-            ("Hello RocketMQ " + i).getBytes(RemotingHelper.DEFAULT_CHARSET)
+            ("Hello RocketMQ " + time).getBytes(RemotingHelper.DEFAULT_CHARSET)
         );
 
         //调用producer的send()方法发送消息
