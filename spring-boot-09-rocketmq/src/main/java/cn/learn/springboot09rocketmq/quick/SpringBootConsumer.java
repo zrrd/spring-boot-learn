@@ -1,4 +1,4 @@
-package cn.learn.springboot09rocketmq.qucik;
+package cn.learn.springboot09rocketmq.quick;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.event.EventListener;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @ConfigurationProperties(prefix = "rocketmq")
 @Component
-public class SpringBootProducer {
+public class SpringBootConsumer {
 
   /**
    * namesrvAddr 地址,通过配置文件.

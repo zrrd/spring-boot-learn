@@ -1,4 +1,4 @@
-package cn.learn.springboot09rocketmq.qucik;
+package cn.learn.springboot09rocketmq.quick;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;

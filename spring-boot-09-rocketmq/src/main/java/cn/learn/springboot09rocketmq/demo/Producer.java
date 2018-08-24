@@ -37,7 +37,7 @@ public class Producer {
       String time = df.format(new Date());
       try {
         // topic
-        Message msg = new Message("TopicTest",
+        Message msg = new Message("TopicTest1",
             // tag
             "TagA",
             // body
