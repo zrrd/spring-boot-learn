@@ -6,7 +6,6 @@ import java.util.List;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.common.message.MessageExt;
 import org.springframework.context.ApplicationEvent;
-import org.springframework.stereotype.Component;
 
 /**
  * Event类.
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Component;
  * @author shaoyijiong
  * @date 2018/7/30
  */
-@Component
 public class RocketmqEvent extends ApplicationEvent {
 
   private static final long serialVersionUID = -4468405250074063206L;

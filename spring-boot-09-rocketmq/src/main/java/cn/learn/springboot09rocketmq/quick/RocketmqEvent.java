@@ -5,6 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.common.message.MessageExt;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEvent;
 
 /**
@@ -17,6 +18,7 @@ public class RocketmqEvent extends ApplicationEvent {
 
   private static final long serialVersionUID = -4468405250074063206L;
   private DefaultMQPushConsumer consumer;
+  @Autowired
   private List<MessageExt> msgs;
 
   public RocketmqEvent(List<MessageExt> msgs, DefaultMQPushConsumer consumer) {
