@@ -20,6 +20,7 @@ public class Task {
   /**
    * 通过@Async告诉Spring这是异步的 通过哪个线程池启动
    * 通过 taskExecutor 来启动线程.
+   * 返回的是一个Future结果
    */
   @Async("taskExecutor")
   public Future<String> doTaskOne() throws InterruptedException {
