@@ -27,5 +27,6 @@ public class RocketmqProperties {
   private boolean consumerBroadcasting;
   private boolean enableHisConsumer;
   private boolean enableOrderConsumer;
+  private boolean vipChannelEnabled;
   private List<String> subscribe = new ArrayList<>();
 }
