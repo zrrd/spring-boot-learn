@@ -35,7 +35,7 @@ public class ProducerDemo {
   public void sendMsg() {
     // 构造消息 topic tags keys body
     Message msg = new Message("TopicTest1", "TagA", "OrderID00" + random,
-        ("Hello zebra mq" + random).getBytes());
+        ("普通消息发送" + random).getBytes());
     try {
       defaultProducer.send(msg, new SendCallback() {
 
@@ -58,14 +58,14 @@ public class ProducerDemo {
   }
 
   /**
-   * 带事物的发送消息.
+   * 带事务消息发送.
    */
   @RequestMapping(value = "/sendTransactionMsg", method = RequestMethod.GET)
   public String sendTransactionMsg() {
     SendResult sendResult = null;
     try {
       // 构造消息 topic tags keys body
-      Message msg = new Message("TopicTest1", "TagA", "OrderID001", ("Hello zebra mq").getBytes());
+      Message msg = new Message("TopicTest1", "TagA", "OrderID001", ("事务消息发送").getBytes());
 
       // 发送事务消息，LocalTransactionExecute的executeLocalTransactionBranch方法中执行本地逻辑
       sendResult = transactionProducer.sendMessageInTransaction(msg, null);
@@ -82,7 +82,7 @@ public class ProducerDemo {
   @RequestMapping(value = "/sendMsgOrder", method = RequestMethod.GET)
   public void sendMsgOrder() {
     Message msg = new Message("TopicTest1", "TagA", "OrderID00" + random,
-        ("Hello zebra mq" + new Random().nextInt(10000)).getBytes());
+        ("顺序消息发送" + new Random().nextInt(10000)).getBytes());
     try {
       defaultProducer.send(msg, (mqs, msg1, arg) -> {
         System.out.println("MessageQueue" + arg);

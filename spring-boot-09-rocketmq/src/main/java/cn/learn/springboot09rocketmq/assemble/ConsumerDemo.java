@@ -13,8 +13,7 @@ import org.springframework.stereotype.Component;
 public class ConsumerDemo {
 
   /**
-   * 通过事件监听的方式拿到消息. condition 监听的topic 和tags
-   * condition判断处理哪个消息
+   * 通过事件监听的方式拿到消息. condition 监听的topic 和tags condition判断处理哪个消息
    *
    * @param event 监听的消息
    */
@@ -23,6 +22,7 @@ public class ConsumerDemo {
     //DefaultMQPushConsumer consumer = event.getConsumer();
     try {
       System.out.println("监听到一个消息达到：" + event.getMsgs().get(0).getMsgId());
+      System.out.println("消息体为" + event.getMsg());
       // TODO 进行业务处理
     } catch (Exception e) {
       e.printStackTrace();
