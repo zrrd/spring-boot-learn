@@ -11,7 +11,7 @@
 10. spring-boot-09-rocketmq        消息中间件rocketmq的部署和使用技巧 与SpringBoot的深度整合
 11. spring-boot-10-elasticsearch   elasticsearch的操作使用
 12. spring-boot-11-async           SpringBoot 自带的异步调用方式
-13. spring-boot-12-scheduled       SpringBoot定时任务的使用
+13. spring-boot-12-scheduled       SpringBoot 定时任务的使用
 14. spring-boot-13-mail            使用SpringBoot发送邮件
 15. spring-boot-14-security        Spring安全框架的使用
 16. spring-boot-jwt                通过jwt的方式对登录的验证
