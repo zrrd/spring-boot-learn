@@ -25,9 +25,8 @@ public class TaskPoolConfig {
   public Executor taskExecutor() {
     ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat("pool-%d").build();
     //自定义线程池
-    ThreadPoolExecutor pool = new ThreadPoolExecutor(5, 200, 0L,
+    return new ThreadPoolExecutor(5, 200, 0L,
         TimeUnit.MILLISECONDS,
         new LinkedBlockingDeque<>(1024), threadFactory);
-    return pool;
   }
 }
