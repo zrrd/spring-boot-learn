@@ -1,6 +1,7 @@
 package cn.learn.cache;
 
 import cn.learn.cache.bean.Game;
+import com.alibaba.fastjson.JSONObject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -82,7 +83,11 @@ public class SpringBoot08CacheApplicationTests {
     //2.修改redis的默认序列化规则
     redisTemplate.opsForValue().set("GAME:1", game);
 
-    game = (Game) redisTemplate.opsForValue().get("GAME:1");
+    JSONObject o;
+    if (( o = (JSONObject) redisTemplate.opsForValue().get("GAME:1")) != null) {
+      game = o.toJavaObject(Game.class);
+    }
+    System.out.println(game);
   }
 
   /**
@@ -101,14 +106,14 @@ public class SpringBoot08CacheApplicationTests {
     redisTemplate.opsForList().size("LIST:01");
 
     //将指定值插入表的头部
-    redisTemplate.opsForList().leftPush("LIST:01", "java");
+    //redisTemplate.opsForList().leftPush("LIST:01", "java");
 
     //所有插入
     List<String> listToSet = new ArrayList<>(Arrays.asList("java", "c++", "ios"));
-    redisTemplate.opsForList().leftPushAll("LIST:01", listToSet);
+    //redisTemplate.opsForList().leftPushAll("LIST:01", listToSet);
 
     //插入某个元素左边
-    redisTemplate.opsForList().leftPush("LIST:01", "java", "oc");
+    //redisTemplate.opsForList().leftPush("LIST:01", "java", "oc");
 
     //删除元素 例子为删除第一次出现的java
     //count> 0：删除等于从头到尾移动的值的元素。

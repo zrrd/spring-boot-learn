@@ -29,8 +29,6 @@ public class GameService {
   @Autowired
   GameMapper gameMapper;
 
-  @Autowired
-  RedisCacheManager redisCacheManager;
 
   /**
    * 将方法结果进行缓存,获得相同的数据从缓存中取出. value/cacheName 缓存名 每一个缓存都有名字 可以是一个数组 key
@@ -80,9 +78,9 @@ public class GameService {
     Game game = gameMapper.getGameByScore(score);
 
     //获取某个缓存
-    Cache gameCache = redisCacheManager.getCache("game");
+    //Cache gameCache = redisCacheManager.getCache("game");
     //手动存入缓存
-    gameCache.put("go", game);
+    //gameCache.put("go", game);
     return game;
   }
 }

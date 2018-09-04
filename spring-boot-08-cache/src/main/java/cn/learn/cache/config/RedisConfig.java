@@ -1,5 +1,6 @@
 package cn.learn.cache.config;
 
+
 import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
@@ -31,13 +32,11 @@ public class RedisConfig extends CachingConfigurerSupport {
     //使用fastjson序列化
     FastJsonRedisSerializer<Object> fastJsonRedisSerializer = new FastJsonRedisSerializer<>(
         Object.class);
-    // value值的序列化采用fastJsonRedisSerializer
     template.setValueSerializer(fastJsonRedisSerializer);
     template.setHashValueSerializer(fastJsonRedisSerializer);
     // key的序列化采用StringRedisSerializer
     template.setKeySerializer(new StringRedisSerializer());
     template.setHashKeySerializer(new StringRedisSerializer());
-
     template.setConnectionFactory(redisConnectionFactory);
     return template;
   }
