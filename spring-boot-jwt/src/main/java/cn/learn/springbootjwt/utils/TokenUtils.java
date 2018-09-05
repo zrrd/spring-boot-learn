@@ -51,10 +51,9 @@ public class TokenUtils {
    */
   private static Claims parseJWT(String jsonWebToken, String base64Security) {
     try {
-      Claims claims = Jwts.parser()
+      return Jwts.parser()
           .setSigningKey(DatatypeConverter.parseBase64Binary(base64Security))
           .parseClaimsJws(jsonWebToken).getBody();
-      return claims;
     } catch (Exception ex) {
       return null;
     }

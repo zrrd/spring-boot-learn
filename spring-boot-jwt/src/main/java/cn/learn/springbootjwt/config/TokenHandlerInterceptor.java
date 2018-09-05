@@ -31,7 +31,6 @@ public class TokenHandlerInterceptor implements HandlerInterceptor {
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
       Object handler) {
     log.info("filter is start");
-    log.info("audience:" + audience.getBase64Secret());
     //打印拦截的url
     String path = request.getRequestURI().substring(request.getContextPath().length())
         .replaceAll("[/]+$", "");

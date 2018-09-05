@@ -23,6 +23,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
 
   @Override
   public void addInterceptors(InterceptorRegistry registry) {
+    //不拦截 登录请求
     registry.addInterceptor(new TokenHandlerInterceptor(audience))
         .excludePathPatterns("/jwt/login");
   }
