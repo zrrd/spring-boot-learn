@@ -13,6 +13,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
  * redis的config. ConditionalOnClass 在导入类redis相关依赖才会生效
+ * 使用fastJson的方式进行序列化
  *
  * @author shaoyijiong
  * @date 2018/7/27
@@ -23,13 +24,14 @@ public class RedisConfig extends CachingConfigurerSupport {
 
   /**
    * 使用fastJson的方式序列化redisTemplate.
+   * 在redis中不会啊记录类型,除非指定FastJsonRedisSerializer的泛型,不然出来的都是JSONObject,不够通用
    */
   @Bean("redisTemplate")
   public RedisTemplate redisTemplate(
       RedisConnectionFactory redisConnectionFactory) {
-    RedisTemplate<Object, Object> template = new RedisTemplate<>();
+    RedisTemplate<String, Object> template = new RedisTemplate<>();
 
-    //使用fastjson序列化
+    //使用fastJson序列化
     FastJsonRedisSerializer<Object> fastJsonRedisSerializer = new FastJsonRedisSerializer<>(
         Object.class);
     template.setValueSerializer(fastJsonRedisSerializer);
