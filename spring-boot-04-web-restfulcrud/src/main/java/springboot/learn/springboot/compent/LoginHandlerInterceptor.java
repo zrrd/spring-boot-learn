@@ -6,14 +6,16 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * 登陆拦截器 检查登陆
+ * 登陆拦截器 检查登陆,要注册到web config中去.
  *
  * @author shaoyijiong
  * @since 2018/7/16
  */
 public class LoginHandlerInterceptor implements HandlerInterceptor {
 
-  //目标方法执行之前
+  /**
+   * 执行方法前.
+   */
   @Override
   public boolean preHandle(HttpServletRequest httpServletRequest,
       HttpServletResponse httpServletResponse, Object o) throws Exception {
@@ -30,6 +32,9 @@ public class LoginHandlerInterceptor implements HandlerInterceptor {
     }
   }
 
+  /**
+   * 执行方法后.
+   */
   @Override
   public void postHandle(HttpServletRequest httpServletRequest,
       HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView)

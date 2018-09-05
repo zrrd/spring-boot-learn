@@ -1,4 +1,4 @@
-package cn.learn.springbootjwt.model;
+package cn.learn.springbootjwt.config;
 
 import lombok.Data;
 

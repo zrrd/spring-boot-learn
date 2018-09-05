@@ -1,9 +1,9 @@
 package cn.learn.springbootjwt.controller;
 
-import cn.learn.springbootjwt.model.AccessToken;
-import cn.learn.springbootjwt.model.Audience;
+import cn.learn.springbootjwt.config.AccessToken;
+import cn.learn.springbootjwt.config.Audience;
 import cn.learn.springbootjwt.model.User;
-import cn.learn.springbootjwt.utils.CreateTokenUtils;
+import cn.learn.springbootjwt.utils.TokenUtils;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Resource;
@@ -47,7 +47,7 @@ public class TestController {
       Map<String, Object> map = new HashMap<>(2);
       map.put("User", USER);
       //根据 用户名 audience的 id name 持续时间 64位加密
-      String accessToken = CreateTokenUtils
+      String accessToken = TokenUtils
           .createJWT(userName, audience.getClientId(), audience.getName(),
               audience.getExpiresSecond() * 1000, audience.getBase64Secret());
       AccessToken accessTokenEntity = new AccessToken();

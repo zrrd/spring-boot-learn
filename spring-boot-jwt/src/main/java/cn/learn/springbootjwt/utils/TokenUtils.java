@@ -18,12 +18,12 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2018/9/5
  */
 @Slf4j
-public class CreateTokenUtils {
+public class TokenUtils {
 
   /**
    * Utils防止构造.
    */
-  private CreateTokenUtils() {
+  private TokenUtils() {
   }
 
 
