@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * 使用WebMvcConfigurer可以来扩展SpringMVC的功能.
+ * 在autoConfig之外的功能
  *
  * @author shaoyijiong
  * @date 2018/7/11

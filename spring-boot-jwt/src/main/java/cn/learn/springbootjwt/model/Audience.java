@@ -1,17 +1,20 @@
-package cn.learn.springbootjwt;
+package cn.learn.springbootjwt.model;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
- * @author shaoyijiong
- * @date 2018/7/27
+ * .
+ *
+ * @author 邵益炯
+ * @date 2018/9/5
  */
-@Data
 @Component
-@ConfigurationProperties(prefix = "audiemce")
+@Data
+@ConfigurationProperties(prefix = "audience")
 public class Audience {
+
   private String clientId;
   private String base64Secret;
   private String name;
