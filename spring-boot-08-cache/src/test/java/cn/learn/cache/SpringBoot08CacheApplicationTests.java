@@ -1,6 +1,7 @@
 package cn.learn.cache;
 
 import cn.learn.cache.bean.Game;
+import cn.learn.cache.service.GameService;
 import com.alibaba.fastjson.JSONObject;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,6 +27,9 @@ public class SpringBoot08CacheApplicationTests {
 
   @Autowired
   StringRedisTemplate stringRedisTemplate;
+
+  @Autowired
+  GameService gameService;
 
   /**
    * Redis常见的五种数据类型 String(字符串),List(列表),Set(集合),Hash(散列),ZSet(有序集合) 通过以下方式来操作各个类型
@@ -84,7 +88,7 @@ public class SpringBoot08CacheApplicationTests {
     redisTemplate.opsForValue().set("GAME:1", game);
 
     JSONObject o;
-    if (( o = (JSONObject) redisTemplate.opsForValue().get("GAME:1")) != null) {
+    if ((o = (JSONObject) redisTemplate.opsForValue().get("GAME:1")) != null) {
       game = o.toJavaObject(Game.class);
     }
     System.out.println(game);
@@ -141,7 +145,15 @@ public class SpringBoot08CacheApplicationTests {
     redisTemplate.opsForHash().get("HASH:01", "key01");
 
     //增加
-    redisTemplate.opsForHash().put("HASH:01", "key01","a");
+    redisTemplate.opsForHash().put("HASH:01", "key01", "a");
+  }
+
+  /**
+   * 测试Spring自带的CacheAble
+   */
+  @Test
+  public void test05() {
+    System.out.println(gameService.selectById(2));
   }
 
 }
