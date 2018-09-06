@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -29,7 +30,8 @@ public class GameService {
 
   @Resource
   GameMapper gameMapper;
-
+  @Resource
+  CacheManager cacheManager;
 
   /**
    * 将方法结果进行缓存,获得相同的数据从缓存中取出. value/cacheName 缓存名 每一个缓存都有名字 可以是一个数组 key

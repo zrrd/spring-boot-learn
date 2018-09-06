@@ -98,7 +98,5 @@ public class RedisConfig extends CachingConfigurerSupport {
     return redisCacheConfiguration.serializeValuesWith(
         RedisSerializationContext.SerializationPair.fromSerializer(jackson2JsonRedisSerializer))
         .entryTtl(Duration.ofDays(30));
-
-
   }
 }
