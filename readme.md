@@ -20,3 +20,5 @@
     1) applicationEvent            通过spring事件监听来解耦
     2) environment                 SpringBoot获取环境参数
     3) restTemplate                SpringBoot通过 restTemplate 进行远程http的方式远程调用
+    4) handlerInterceptor          拦截器
+    5) filter                      过滤器
