@@ -7,7 +7,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * 自定义拦截器.
+ * 自定义拦截器. 推荐使用拦截器
  *
  * @author 邵益炯
  * @date 2018/9/25
