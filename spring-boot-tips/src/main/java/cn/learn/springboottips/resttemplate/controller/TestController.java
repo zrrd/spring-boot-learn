@@ -2,6 +2,8 @@ package cn.learn.springboottips.resttemplate.controller;
 
 import cn.learn.springboottips.resttemplate.Response;
 import com.alibaba.fastjson.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
 import javax.annotation.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -76,6 +78,8 @@ public class TestController {
     //只包含请求体信息
     Response response1;
     String param = "{'a':'a'}";
+    Map<String, String> pp = new HashMap<>();
+    pp.put("a", "a");
     switch (id) {
       case (1):
         //发送一个HTTP GET请求 返回的ResponseEntity包含了响应体所映射成的对象
@@ -83,12 +87,17 @@ public class TestController {
         return response0.getBody();
       case (2):
         //发送一个HTTP POST请求，返回的请求体将映射为一个对象,这里的{}相当于url参数,就是id
+        //http://localhost:8080/get/1
         response1 = restTemplate
             .postForObject("http://localhost:8080/get/{id}", param, Response.class, id);
         return response1;
       case (3):
-        //这个参数param是url参数
+        //这个参数param是url参数 json 请求
         response1 = restTemplate.getForObject("http://localhost:8080/get", Response.class, param);
+        return response1;
+      case (4):
+        //这种请求  http://localhost:8080/get?a=a
+        response1 = restTemplate.getForObject("http://localhost:8080/get", Response.class, pp);
         return response1;
       default:
         response0 = restTemplate.getForEntity("http://localhost:8080/get", Response.class);
