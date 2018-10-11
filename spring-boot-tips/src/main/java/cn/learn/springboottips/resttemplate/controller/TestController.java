@@ -2,8 +2,6 @@ package cn.learn.springboottips.resttemplate.controller;
 
 import cn.learn.springboottips.resttemplate.Response;
 import com.alibaba.fastjson.JSONObject;
-import java.util.HashMap;
-import java.util.Map;
 import javax.annotation.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
