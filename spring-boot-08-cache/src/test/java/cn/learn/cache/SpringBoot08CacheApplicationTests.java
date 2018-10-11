@@ -102,7 +102,6 @@ public class SpringBoot08CacheApplicationTests {
 
     // start 表示从0开始  end 偏移量 也可以为负数 -1表示最后一个元素  这样写就是列表的所有元素
     redisTemplate.opsForList().range("LIST:01", 0, -1);
-
     //修剪现有列表，使其只包含指定的指定范围的元素，起始和停止都是基于0的索引 相当于去掉第一个元素
     redisTemplate.opsForList().trim("LIST:01", 1, -1);
 

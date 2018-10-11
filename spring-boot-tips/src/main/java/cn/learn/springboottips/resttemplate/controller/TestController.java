@@ -78,8 +78,6 @@ public class TestController {
     //只包含请求体信息
     Response response1;
     String param = "{'a':'a'}";
-    Map<String, String> pp = new HashMap<>();
-    pp.put("a", "a");
     switch (id) {
       case (1):
         //发送一个HTTP GET请求 返回的ResponseEntity包含了响应体所映射成的对象
@@ -97,7 +95,8 @@ public class TestController {
         return response1;
       case (4):
         //这种请求  http://localhost:8080/get?a=a
-        response1 = restTemplate.getForObject("http://localhost:8080/get", Response.class, pp);
+        response1 = restTemplate
+            .getForObject("http://localhost:8080/get?a={a}", Response.class, "param");
         return response1;
       default:
         response0 = restTemplate.getForEntity("http://localhost:8080/get", Response.class);
