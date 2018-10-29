@@ -2,9 +2,11 @@ package springboot.learn.springboot.controller.exception;
 
 import java.util.HashMap;
 import java.util.Map;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import springboot.learn.springboot.base.BaseException;
 
 /**
@@ -20,8 +22,9 @@ public class MyExceptionHandler {
    * 异常处理器.
    *
    * @param e 自定义的异常全部通过这个处理器处理
-   * @return 自定义的异常信息, json格式
+   * @return 自定义的异常信息, json格式 返回消息类型是正常状态
    */
+  @ResponseStatus(HttpStatus.OK)
   @ResponseBody
   @ExceptionHandler(BaseException.class)
   public Map<String, Object> handleException(BaseException e) {
