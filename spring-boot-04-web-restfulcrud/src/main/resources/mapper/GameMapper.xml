@@ -1,5 +1,5 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="springboot.learn.springboot.mapper.GameMapper">
+<mapper namespace="cn.learn.springboot.mapper.GameMapper">
 
-  <select id="selectAll" resultType="springboot.learn.springboot.model.Game"/>
+  <select id="selectAll" resultType="cn.learn.springboot.model.Game"/>
 </mapper>
