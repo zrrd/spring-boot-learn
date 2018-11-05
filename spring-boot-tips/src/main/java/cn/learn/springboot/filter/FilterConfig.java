@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * 推荐使用拦截器   过滤器能做到的拦截器都能做到  但是有些过滤器做不到
+ * 推荐使用拦截器   过滤器能做到的拦截器都能做到  但是有些过滤器做不到.
  *
  * @author 邵益炯
  * @date 2018/9/25
