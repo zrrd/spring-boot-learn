@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -70,6 +71,8 @@ public class SpringBoot08CacheApplicationTests {
     keys.add("NAME:01");
     keys.add("NAME:02");
     List<String> values = stringRedisTemplate.opsForValue().multiGet(keys);
+    redisTemplate.opsForSet().add("aaa", 10);
+    redisTemplate.opsForSet().add("bbb:" + 10, 10);
     System.out.println(value);
 
   }
@@ -145,6 +148,9 @@ public class SpringBoot08CacheApplicationTests {
 
     //增加
     redisTemplate.opsForHash().put("HASH:01", "key01", "a");
+
+    Boolean a = redisTemplate.opsForSet().isMember("a", 1);
+    redisTemplate.opsForSet().add("a", "a");
   }
 
   /**
