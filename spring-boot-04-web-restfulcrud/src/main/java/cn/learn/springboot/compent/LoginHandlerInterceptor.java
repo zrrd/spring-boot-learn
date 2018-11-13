@@ -37,8 +37,7 @@ public class LoginHandlerInterceptor implements HandlerInterceptor {
    */
   @Override
   public void postHandle(HttpServletRequest httpServletRequest,
-      HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView)
-      throws Exception {
+      HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) {
 
   }
 

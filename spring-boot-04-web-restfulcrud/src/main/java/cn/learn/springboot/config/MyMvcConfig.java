@@ -1,5 +1,6 @@
 package cn.learn.springboot.config;
 
+import cn.learn.springboot.compent.LoginHandlerInterceptor;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -48,9 +49,9 @@ public class MyMvcConfig implements WebMvcConfigurer {
    */
   @Override
   public void addInterceptors(InterceptorRegistry registry) {
-    //将自己的登陆拦截器放进来
-        /*registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-                    .excludePathPatterns("/login", "/", "index.html", "/user/login");*/
+    //将自己的登陆拦截器放进来 拦截的路径 排除的路径
+    registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
+        .excludePathPatterns("/login", "/", "index.html", "/user/login");
   }
 
 

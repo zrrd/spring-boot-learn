@@ -1,8 +1,8 @@
 package cn.learn.springboot.mapper;
 
+import cn.learn.springboot.model.Game;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import java.util.List;
-import cn.learn.springboot.model.Game;
 
 /**
  * .

@@ -1,11 +1,12 @@
 package cn.learn.springboot.mapper;
 
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
 import cn.learn.springboot.model.User;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**
- * @author win
+ * .
+ * @author shaoyijiong
  */
 public interface UserMapper extends BaseMapper<User> {
 
