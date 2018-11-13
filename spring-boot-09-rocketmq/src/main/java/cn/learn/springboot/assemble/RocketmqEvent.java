@@ -31,7 +31,7 @@ public class RocketmqEvent extends ApplicationEvent {
   private String tag;
 
   /**
-   * event 构造,使SpringBoot能够监听到
+   * event 构造,使SpringBoot能够监听到.
    *
    * @param msgs 消息列表
    * @param consumer 消费者

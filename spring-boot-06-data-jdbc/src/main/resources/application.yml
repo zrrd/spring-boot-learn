@@ -4,5 +4,12 @@ spring:
     username: root
     password: 123456
     url: jdbc:mysql://47.99.73.15:3306/jdbc
-    driver-class-name: com.mysql.jdbc.Driver
-    type: com.zaxxer.hikari.HikariDataSource
+    #都能省略  SpringBoot能自动推断
+    #driver-class-name: com.mysql.jdbc.Driver
+    #type: com.zaxxer.hikari.HikariDataSource
+
+    #其他连接池配置
+    hikari:
+      idle-timeout: 60000
+      maximum-pool-size: 30
+      minimum-idle: 10
