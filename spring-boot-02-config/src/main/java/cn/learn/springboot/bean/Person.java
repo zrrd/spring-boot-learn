@@ -17,18 +17,10 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties()
 public class Person {
 
-  private List<Integer> num;
-  private String name;
+  //private List<Integer> num;
+  //private String name;
 
-  @Value("${person.age}")
-  private Integer age;
+  //@Value("${person.age}")
+  //private Integer age;
 
-  @Override
-  public String toString() {
-    return "person{" +
-        "num=" + num +
-        ", name='" + name + '\'' +
-        ", age=" + age +
-        '}';
-  }
 }

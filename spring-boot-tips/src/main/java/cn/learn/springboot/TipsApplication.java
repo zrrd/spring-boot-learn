@@ -1,5 +1,6 @@
 package cn.learn.springboot;
 
+import java.util.concurrent.atomic.AtomicInteger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

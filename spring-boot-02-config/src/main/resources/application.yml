@@ -1,3 +1,6 @@
+angular:
+    - init
+    - home
 person:
     age: 10
     name: aa
