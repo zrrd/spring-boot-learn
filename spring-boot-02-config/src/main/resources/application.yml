@@ -1,23 +1,25 @@
 angular:
-    - init
-    - home
+  - init
+  - home
 person:
-    age: 10
-    name: aa
-    num:
-      - 1
-      - 2
+  age: 10
+  name: aa
+  num:
+    - 1
+    - 2
 server:
   port: 8080
+#默认启动环境
 spring:
- profiles: dev
+  profiles:
+    active: dev
 ---
 server:
   port: 8081
 spring:
- profiles: dev
+  profiles: dev
 ---
 server:
   port: 8082
 spring:
- profiles: prod
+  profiles: prod
