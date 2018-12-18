@@ -3,6 +3,7 @@ package cn.learn.springboot;
 import cn.learn.springboot.model.Game;
 import io.searchbox.client.JestClient;
 import io.searchbox.client.JestResult;
+import io.searchbox.client.http.JestHttpClient;
 import io.searchbox.core.Index;
 import io.searchbox.core.Index.Builder;
 import io.searchbox.core.Search;
@@ -25,8 +26,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class JestTest {
 
-  @Autowired
-  JestClient jestClient;
+  //@Autowired
+  JestClient jestClient = new JestHttpClient();
 
   @Test
   public void jestGo() throws IOException {

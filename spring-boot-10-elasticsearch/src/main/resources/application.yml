@@ -1,0 +1,9 @@
+spring:
+  #spring data es 注解
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: 47.99.73.15:9300
+  #jest 注解
+  elasticsearch:
+    jest.uris: http://47.99.73.15:9200
