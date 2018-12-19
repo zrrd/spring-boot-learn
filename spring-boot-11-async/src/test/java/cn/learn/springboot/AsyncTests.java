@@ -11,7 +11,7 @@ import org.springframework.util.StopWatch;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SpringBootAsyncApplicationTests {
+public class AsyncTests {
 
   @Autowired
   Task task;

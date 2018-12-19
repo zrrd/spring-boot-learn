@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class HelloCommandLineRunner implements CommandLineRunner {
 
   @Override
-  public void run(String... strings) throws Exception {
+  public void run(String... strings) {
     System.out.println("CommandLineRunner" + Arrays.asList(strings));
   }
 }

@@ -1,5 +1,6 @@
-package cn.learn.springboot.listener;
+package cn.learn.springboot.bean;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -13,8 +14,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class HelloApplicationRunner implements ApplicationRunner {
 
+  private final Person person;
+
+  @Autowired
+  public HelloApplicationRunner(Person person) {
+    this.person = person;
+  }
+
   @Override
   public void run(ApplicationArguments applicationArguments) {
-    System.out.println("ApplicationRunner");
+    System.out.println(person);
   }
 }

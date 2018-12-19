@@ -14,12 +14,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SpringBoot03LoggingApplicationTests {
+public class LoggingTests {
 
   /**
    * 记录器
    */
-  Logger logger = LoggerFactory.getLogger(getClass());
+  private Logger logger = LoggerFactory.getLogger(getClass());
 
 
 

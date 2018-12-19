@@ -21,7 +21,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SpringBoot08CacheApplicationTests {
+public class RedisTests {
 
   @Autowired
   RedisTemplate<String, Object> redisTemplate;
@@ -74,6 +74,9 @@ public class SpringBoot08CacheApplicationTests {
     redisTemplate.opsForSet().add("aaa", 10);
     redisTemplate.opsForSet().add("bbb:" + 10, 10);
     System.out.println(value);
+
+    //设置过期时间 10天
+    redisTemplate.expire("NAME:01", 10, TimeUnit.DAYS);
 
   }
 

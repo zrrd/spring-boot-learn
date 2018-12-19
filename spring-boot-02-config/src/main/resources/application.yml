@@ -1,12 +1,21 @@
-angular:
-  - init
-  - home
+#在yml中也可以互相引用
 person:
-  age: 10
-  name: aa
-  num:
-    - 1
-    - 2
+  lastName: hello
+  age: 18
+  boss: false
+  birth: 2017/12/12
+  maps: {k1: v1,k2: v2}
+  lists:
+    - liss
+    - zhaolin
+  dog:
+    name: 小狗
+    age: 5
+
+
+
+
+
 server:
   port: 8080
 #默认启动环境

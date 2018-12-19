@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SpringBoot06DataJdbcApplicationTests {
+public class DataJdbcTests {
 
 	@Autowired
 	DataSource dataSource;
