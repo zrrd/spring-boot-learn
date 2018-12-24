@@ -2,6 +2,7 @@ package cn.learn.springboot.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
@@ -15,6 +16,7 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
  */
 @SuppressWarnings("all")
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 //这里可以定义创建索引的各个参数
 @Document(indexName = "myitem", type = "myitem", shards = 1, replicas = 0)
