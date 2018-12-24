@@ -7,7 +7,6 @@ import cn.learn.springboot.repository.ItemRepository;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import org.elasticsearch.index.query.MatchQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.aggregations.AggregationBuilders;
@@ -18,13 +17,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
 import org.springframework.data.elasticsearch.core.query.FetchSourceFilter;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
-import org.springframework.data.elasticsearch.core.query.SearchQuery;
-import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
@@ -79,17 +75,20 @@ public class SpringDataElasticsearchTest {
 
   @Test
   public void queryTemplate() {
+    //查找
     QueryBuilder matchQuery = QueryBuilders.matchQuery("title", "小米");
-    //原生查询  可以分页
+    //可以分页
     Iterable<Item> items = itemRepository.search(matchQuery);
 
+    //原生  功能更加强大
     //可以整合原生api
     //添加查询条件  结果过滤
     NativeSearchQueryBuilder queryBuilder = new NativeSearchQueryBuilder();
     queryBuilder.withQuery(matchQuery);
     //结果过滤
     queryBuilder.withSourceFilter(new FetchSourceFilter(new String[]{"id", "title"}, null));
-    queryBuilder.withPageable(PageRequest.of(1, 10));
+    //分页 从0开始
+    queryBuilder.withPageable(PageRequest.of(0, 10));
     Page<Item> items1 = itemRepository.search(queryBuilder.build());
   }
 
