@@ -99,6 +99,8 @@ public class TestController {
       default:
         response0 = restTemplate.getForEntity("http://localhost:8080/get", Response.class);
         return response0.getBody();
+
+      //注意了  提交表单请求 要用HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
     }
   }
 }
