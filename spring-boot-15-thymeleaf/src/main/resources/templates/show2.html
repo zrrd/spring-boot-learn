@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div>
+    您好<span th:text="${user.name}">请登录</span>
+    <p>Name: <span th:text="${user.name}">Jack</span>.</p>
+    <p>Age: <span th:text="${user.age}">21</span>.</p>
+    <p>friend: <span th:text="${user.friend.name}">Rose</span>.</p>
+  </div>
+
+  <h2 th:object="${user}">
+    <p>FirstName: <span th:text="*{name.split(' ')[0]}">Jack</span>.</p>
+    <p>LastName: <span th:text="*{name.split(' ')[1]}">Li</span>.</p>
+  </h2>
+  <span th:text="|欢迎您:${user.name}|"></span>
+</body>
+</html>

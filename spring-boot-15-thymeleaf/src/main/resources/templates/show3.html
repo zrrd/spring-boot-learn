@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<p>
+  今天是: <span th:text="${#dates.format(today,'yyyy-MM-dd')}">2018-04-25</span>
+</p>
+<p>
+  你正在观看 <span th:text="'thymeleaf'">template</span> 的字符串常量值.
+</p>
+<p>今年是 <span th:text="2018">1900</span>.</p>
+<p>两年后将会是 <span th:text="2018 + 2">1902</span>.</p>
+<div th:if="true">
+  你填的是true
+</div>
+</body>
+</html>
