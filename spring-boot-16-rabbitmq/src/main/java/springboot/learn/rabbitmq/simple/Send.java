@@ -8,9 +8,10 @@ import springboot.learn.rabbitmq.util.ConnectionUtil;
 /**
  * 生产者
  */
+@SuppressWarnings("all")
 public class Send {
 
-  private final static String QUEUE_NAME = "simple_queue";
+  private static final String QUEUE_NAME = "simple_queue";
 
   public static void main(String[] argv) throws Exception {
     // 获取到连接

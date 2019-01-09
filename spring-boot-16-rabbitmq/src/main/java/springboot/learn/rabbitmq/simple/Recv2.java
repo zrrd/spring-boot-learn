@@ -12,6 +12,7 @@ import springboot.learn.rabbitmq.util.ConnectionUtil;
 /**
  * 消费者,手动进行ACK
  */
+@SuppressWarnings("all")
 public class Recv2 {
 
   private static final String QUEUE_NAME = "simple_queue";

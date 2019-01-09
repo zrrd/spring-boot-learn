@@ -5,12 +5,12 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
-import java.io.IOException;
 import springboot.learn.rabbitmq.util.ConnectionUtil;
 
 /**
  * 消费者2
  */
+@SuppressWarnings("all")
 public class Recv2 {
 
   private static final String QUEUE_NAME = "direct_exchange_queue_2";
