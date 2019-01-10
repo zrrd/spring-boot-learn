@@ -14,9 +14,11 @@
 13. spring-boot-12-scheduled       SpringBoot 定时任务的使用
 14. spring-boot-13-mail            使用SpringBoot发送邮件
 15. spring-boot-14-security        Spring安全框架的使用
-16. spring-boot-jwt                通过jwt的方式对登录的验证
-17. spring-boot-swagger2           通过swagger2来自动构建接口文档
-18. spring-boot-tips               Spring-Boot 小技巧
+16. spring-boot-15-thymeleaf       thymeleaf的使用
+17. spring-boot-16-rabbitmq        rabbitmq的使用    页面静态化
+18. spring-boot-jwt                通过jwt的方式对登录的验证
+19. spring-boot-swagger2           通过swagger2来自动构建接口文档
+20. spring-boot-tips               Spring-Boot 小技巧
     1) applicationEvent            通过spring事件监听来解耦
     2) environment                 SpringBoot获取环境参数
     3) restTemplate                SpringBoot通过 restTemplate 进行远程http的方式远程调用
