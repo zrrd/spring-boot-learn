@@ -4,9 +4,9 @@ spring:
     port: 5672
     username: guest
     password: guest
-    #\u5F00\u542F\u624B\u52A8ack  \u63A7\u5236\u6D88\u606F\u5728MQ\u7684\u5220\u9664 \u91CD\u53D1
+    #手动ack
     listener:
       simple:
         acknowledge-mode: manual
-    #\u6D88\u606F\u53D1\u9001\u6210\u529F\u540E ack\u786E\u8BA4
+    #消息确认
     publisher-confirms: true
