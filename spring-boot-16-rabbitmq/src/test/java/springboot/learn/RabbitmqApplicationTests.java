@@ -6,18 +6,18 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import springboot.learn.mp.MqService;
+import springboot.learn.mp.SendService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SpringBoot16RabbitmqApplicationTests {
+public class RabbitmqApplicationTests {
 
   @Autowired
-  private MqService mqService;
+  private SendService sendService;
 
   @Test
   public void contextLoads() throws InterruptedException {
-    mqService.sendMsgCas("hello world", "0001");
+    sendService.send("你好");
     //mqService.sendMsg("hello");
     TimeUnit.SECONDS.sleep(5);
   }
