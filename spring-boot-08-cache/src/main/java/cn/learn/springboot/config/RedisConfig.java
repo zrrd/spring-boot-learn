@@ -92,7 +92,7 @@ public class RedisConfig extends CachingConfigurerSupport {
   /**
    * 修改SpringBoot默认的redisCache配置,这里设置了序列化方式和缓存失效的时间.
    */
-  @Bean
+  //@Bean
   public RedisCacheConfiguration redisCacheConfiguration() {
     RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig();
     return redisCacheConfiguration.serializeValuesWith(

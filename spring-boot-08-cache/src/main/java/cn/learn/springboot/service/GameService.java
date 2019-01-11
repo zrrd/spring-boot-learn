@@ -27,8 +27,8 @@ public class GameService {
 
   @Resource
   GameMapper gameMapper;
-  @Resource
-  CacheManager cacheManager;
+  //@Resource
+  //CacheManager cacheManager;
 
   /**
    * 将方法结果进行缓存,获得相同的数据从缓存中取出. value/cacheName 缓存名 每一个缓存都有名字 可以是一个数组 key

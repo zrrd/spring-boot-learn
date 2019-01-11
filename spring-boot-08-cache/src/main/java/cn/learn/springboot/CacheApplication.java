@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  * @author shaoyijiong
  */
-@MapperScan("cn.learn.cache.mapper")
+@MapperScan("cn.learn.springboot.mapper")
 @SpringBootApplication
 public class CacheApplication {
 

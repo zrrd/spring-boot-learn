@@ -16,8 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GameController {
 
+  private final GameService gameService;
+
   @Autowired
-  private GameService gameService;
+  public GameController(GameService gameService) {
+    this.gameService = gameService;
+  }
 
   @GetMapping("/game/{id}")
   public Game getGame(@PathVariable Integer id) {
