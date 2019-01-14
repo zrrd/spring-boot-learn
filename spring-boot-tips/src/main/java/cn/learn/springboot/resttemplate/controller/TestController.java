@@ -3,7 +3,11 @@ package cn.learn.springboot.resttemplate.controller;
 import cn.learn.springboot.resttemplate.Response;
 import com.alibaba.fastjson.JSONObject;
 import javax.annotation.Resource;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -96,6 +100,15 @@ public class TestController {
         response1 = restTemplate
             .getForObject("http://localhost:8080/get?a={a}", Response.class, "param");
         return response1;
+      case (5):
+        //封装请求参数
+        MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
+        //封装请求头
+        HttpHeaders headers = new HttpHeaders();
+        //将请求头与请求参数合并为一个请求体
+        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
+        response0 = restTemplate.postForEntity("", request, Response.class);
+        return response0.getBody();
       default:
         response0 = restTemplate.getForEntity("http://localhost:8080/get", Response.class);
         return response0.getBody();
