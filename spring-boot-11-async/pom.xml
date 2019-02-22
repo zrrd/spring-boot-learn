@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>cn.learn</groupId>
-  <artifactId>spring-boot-async</artifactId>
+  <artifactId>spring-boot-11-async</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>spring-boot-async</name>
+  <name>spring-boot-11-async</name>
   <description>Spring Boot异步任务</description>
 
   <parent>

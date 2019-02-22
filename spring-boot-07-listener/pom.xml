@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>cn.learn</groupId>
-  <artifactId>spring-boot-07</artifactId>
+  <artifactId>spring-boot-07-listener</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>spring-boot-07</name>
+  <name>spring-boot-07-listener</name>
   <description>Spring Boot 监听</description>
 
   <parent>

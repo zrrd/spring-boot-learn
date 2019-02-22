@@ -38,10 +38,11 @@
         <module>spring-boot-09-rocketmq</module>
         <module>spring-boot-10-elasticsearch</module>
         <module>spring-boot-11-async</module>
-        <module>spring-boot-12-scheduled</module>
+        <module>spring-boot-12-scheduler</module>
         <module>spring-boot-13-mail</module>
         <module>spring-boot-14-security</module>
         <module>spring-boot-15-thymeleaf</module>
+        <module>spring-boot-16-rabbitmq</module>
         <module>spring-boot-jwt</module>
         <module>spring-boot-swagger2</module>
         <module>spring-boot-tips</module>
