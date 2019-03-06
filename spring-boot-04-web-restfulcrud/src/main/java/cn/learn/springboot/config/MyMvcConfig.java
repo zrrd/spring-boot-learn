@@ -25,16 +25,17 @@ import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 /**
- * 使用WebMvcConfigurer可以来扩展SpringMVC的功能. 在autoConfig之外的功能
+ * 使用WebMvcConfigurer可以来扩展SpringMVC的功能. 在autoConfig之外的功能 WebMvcConfigurationSupport 相比
+ * WebMvcConfigurer 都有了基本的实现
  *
  * @author shaoyijiong
  * @date 2018/7/11
  */
 @Configuration
-public class MyMvcConfig implements WebMvcConfigurer {
+public class MyMvcConfig extends WebMvcConfigurationSupport {
 
   /**
    * . 添加路由映射
@@ -45,18 +46,18 @@ public class MyMvcConfig implements WebMvcConfigurer {
   }
 
   /**
-   * 添加拦截器.
+   * 添加拦截器
    */
   @Override
   public void addInterceptors(InterceptorRegistry registry) {
     //将自己的登陆拦截器放进来 拦截的路径 排除的路径
     registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-        .excludePathPatterns("/login", "/", "index.html", "/user/login");
+      .excludePathPatterns("/login", "/", "index.html", "/user/login");
   }
 
 
   /**
-   * 定制URL规则.
+   * 定制URL规则
    * <p>setUseSuffixPatternMatch : 设置是否是后缀模式匹配，如“/user”是否匹配/user.*，默认真即匹配；</p>
    * <p>setUseTrailingSlashMatch : 设置是否自动后缀路径模式匹配，如“/user”是否匹配“/user/”，默认真即匹配</p>
    */
@@ -66,25 +67,25 @@ public class MyMvcConfig implements WebMvcConfigurer {
   }
 
   /**
-   * 是否通过请求Url的扩展名来决定media type.
+   * 是否通过请求Url的扩展名来决定media type
    */
   @Override
   public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
     configurer.favorPathExtension(true)
-        /* 不检查Accept请求头 */
-        .ignoreAcceptHeader(true)
-        .parameterName("mediaType")
-        /* 设置默认的media type */
-        .defaultContentType(MediaType.TEXT_HTML)
-        /* 请求以.html结尾的会被当成MediaType.TEXT_HTML*/
-        .mediaType("html", MediaType.TEXT_HTML)
-        /* 请求以.json结尾的会被当成MediaType.APPLICATION_JSON*/
-        .mediaType("json", MediaType.APPLICATION_JSON);
+      /* 不检查Accept请求头 */
+      .ignoreAcceptHeader(true)
+      .parameterName("mediaType")
+      /* 设置默认的media type */
+      .defaultContentType(MediaType.TEXT_HTML)
+      /* 请求以.html结尾的会被当成MediaType.TEXT_HTML*/
+      .mediaType("html", MediaType.TEXT_HTML)
+      /* 请求以.json结尾的会被当成MediaType.APPLICATION_JSON*/
+      .mediaType("json", MediaType.APPLICATION_JSON);
   }
 
   @Override
   public void configureAsyncSupport(AsyncSupportConfigurer configurer) {
-    /*异步处理请求。可以先释放容器分配给请求的线程与相关资源，减轻系统负担，释放了容器所分配线程的请求，
+    /*异步处理请求。可以先释放容器分配给请求的线程与相关资源，减轻系统负担，释放了容器所分配线程的请求
     其响应将被延后，可以在耗时处理完成（例如长时间的运算）时再对客户端进行响应。*/
     final ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
     //核心线程数
@@ -105,7 +106,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
   }
 
   /**
-   * 格式化.
+   * 格式化
    */
   @Override
   public void addFormatters(FormatterRegistry registry) {
@@ -125,7 +126,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
   }
 
   /**
-   * 静态资源文件处理.
+   * 静态资源文件处理
    */
   @Override
   public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -134,26 +135,26 @@ public class MyMvcConfig implements WebMvcConfigurer {
   }
 
   /**
-   * 解决跨域请求.  另外，还可以通过添加 Filter 的方式，配置 CORS 规则，并手动指定对哪些接口有效。
+   * 解决跨域请求.  另外，还可以通过添加 Filter 的方式，配置 CORS 规则，并手动指定对哪些接口有效
    */
   @Override
   public void addCorsMappings(CorsRegistry registry) {
     registry.addMapping("/**")
-        .allowedOrigins("*")
-        .allowCredentials(true)
-        .allowedMethods("GET", "POST", "DELETE", "PUT")
-        .maxAge(3600);
+      .allowedOrigins("*")
+      .allowCredentials(true)
+      .allowedMethods("GET", "POST", "DELETE", "PUT")
+      .maxAge(3600);
   }
 
   /**
-   * 视图解析器.
+   * 视图解析器
    */
   @Override
   public void configureViewResolvers(ViewResolverRegistry registry) {
   }
 
   /**
-   * 自定义方法参数解析器.
+   * 自定义方法参数解析器
    */
   @Override
   public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
@@ -161,7 +162,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
   }
 
   /**
-   * 返回结果处理器.
+   * 返回结果处理器
    */
   @Override
   public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> handlers) {
@@ -169,7 +170,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
   }
 
   /**
-   * 消息体转换.
+   * 消息体转换 例如将 null 转化未空字符串 将时间戳转String
    */
   @Override
   public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
@@ -177,7 +178,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
   }
 
   /**
-   * 消息体转换拓展.
+   * 消息体转换拓展
    */
   @Override
   public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
@@ -185,7 +186,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
   }
 
   /**
-   * 异常处理.
+   * 异常处理
    */
   @Override
   public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
@@ -193,7 +194,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
   }
 
   /**
-   * 异常处理拓展.
+   * 异常处理拓展
    */
   @Override
   public void extendHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
