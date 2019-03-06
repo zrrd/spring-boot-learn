@@ -16,6 +16,7 @@
 15. spring-boot-14-security        Spring安全框架的使用
 16. spring-boot-15-thymeleaf       thymeleaf的使用
 17. spring-boot-16-rabbitmq        rabbitmq的使用    页面静态化
+18. spring-boot-17-base            Spring boot 基础IOC 
 18. spring-boot-jwt                通过jwt的方式对登录的验证
 19. spring-boot-swagger2           通过swagger2来自动构建接口文档
 20. spring-boot-tips               Spring-Boot 小技巧
