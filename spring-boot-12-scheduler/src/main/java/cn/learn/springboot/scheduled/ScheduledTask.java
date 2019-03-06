@@ -22,7 +22,7 @@ public class ScheduledTask {
   }
 
   /**
-   * 第一次10秒后执行，当执行完后2秒再执行.
+   * 第一次10秒后执行，当执行完后2秒再执行. 执行完再执行下一步
    * */
   @Scheduled(initialDelay = 10000, fixedDelay = 2000)
   public void task2() {
@@ -30,7 +30,7 @@ public class ScheduledTask {
   }
 
   /**
-   * 每100秒执行一次.
+   * 每100秒执行一次. 不管有没有执行完
    * */
   @Scheduled(fixedRate = 100000)
   public void timerRate() {

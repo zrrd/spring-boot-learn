@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import javax.sound.midi.SoundbankResource;
 import lombok.Data;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 @RunWith(SpringRunner.class)
@@ -91,5 +94,27 @@ public class SpringBootTipsApplicationTests {
     }
     System.out.println(allRobot);
     System.out.println(robots.size());
+  }
+
+  @Data
+  class AA {
+
+      String text = "【豪霆云】您的验证码是1234";
+        String apikey = "031ecee5862bfb809622a61697cd480d";
+        String mobile = "17826808394";
+
+  }
+
+  @Test
+  public void rest() {
+      AA a = new AA();
+      String url = "http://sms.haotingyun.com/v2/sms/single_send.json";
+      MultiValueMap<String, Object> param = new LinkedMultiValueMap<>();
+      param.add("apikey", "031ecee5862bfb809622a61697cd480d");
+      param.add("text", "【豪霆云】您的验证码是1234");
+      param.add("mobile","17826808394");
+      RestTemplate restTemplate = new RestTemplate();
+      Object object = restTemplate.postForObject(url, param, Object.class);
+      System.out.println(object);
   }
 }
