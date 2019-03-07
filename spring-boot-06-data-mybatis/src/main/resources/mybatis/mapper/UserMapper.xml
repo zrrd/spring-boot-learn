@@ -3,7 +3,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.learn.springboot.mapper.UserMapper">
 
-  <select id="getUserById" resultType="cn.learn.springboot.bean.User">
+  <select id="getUserById" resultType="user">
     SELECT * FROM user WHERE id = #{id}
   </select>
 </mapper>
