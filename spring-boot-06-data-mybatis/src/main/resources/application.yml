@@ -9,9 +9,10 @@ spring:
   #指定时间格式化 发售日期提交的是年月日的类型
   mvc:
     date-format: yyyy-MM-dd
-#mybatis 驼峰和下划线的转换
+#mybatis
 mybatis:
   configuration:
+    #驼峰转下滑线
     map-underscore-to-camel-case: true
   #config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml

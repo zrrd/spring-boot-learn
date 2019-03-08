@@ -2,26 +2,22 @@ package cn.learn.springboot;
 
 import cn.learn.springboot.bean.Game;
 import cn.learn.springboot.service.GameService;
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
-import lombok.Data;
-import org.apache.commons.lang3.time.DateUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.dao.DataAccessException;
+import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.SessionCallback;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -170,72 +166,17 @@ public class RedisTests {
         System.out.println(gameService.selectById(2));
     }
 
-    @Data
-    static class  A {
-
-        String fromId;
-        Date expireDate;
-
-        @Override
-        public String toString() {
-            return JSON.toJSONString(this);
-        }
-    }
-
     @Test
-    public void redisTest() {
-        String key = "weixin:form:aa";
-        //stringRedisTemplate.opsForValue().set(a, "das");
-        //7天后过期
-        A a1 = new A();
-        a1.setFromId("1");
-        a1.setExpireDate(DateUtils.addDays(new Date(), 7));
-
-        //已经过期
-        A a2 = new A();
-        a2.setFromId("2");
-        a2.setExpireDate(DateUtils.addDays(new Date(), -7));
-
-        //6天后过期
-        A a3 = new A();
-        a3.setFromId("3");
-        a3.setExpireDate(DateUtils.addDays(new Date(), 6));
-
-        //已经过期
-        A a4 = new A();
-        a4.setFromId("4");
-        a4.setExpireDate(DateUtils.addDays(new Date(), -9));
-
-        //3天后过期
-        A a5 = new A();
-        a5.setFromId("5");
-        a5.setExpireDate(DateUtils.addDays(new Date(), 3));
-
-        stringRedisTemplate.opsForSet()
-            .add(key, JSON.toJSONString(a1), JSON.toJSONString(a2), JSON.toJSONString(a3),
-                JSON.toJSONString(a4), JSON.toJSONString(a5));
-
-        stringRedisTemplate.expireAt(key, DateUtils.addDays(new Date(), 7));
+    public void test06() {
+        //在一个连接中执行多个redis命令
+        redisTemplate.execute(new SessionCallback<Object>() {
+            @Override
+            public Object execute(RedisOperations operations)
+                throws DataAccessException {
+                operations.delete("a");
+                operations.opsForValue().get("b");
+                return null;
+            }
+        });
     }
-
-    @Test
-    public void redisTest2() {
-        Date date = new Date();
-        String key = "weixin:form:aa";
-        Set<String> members = stringRedisTemplate.opsForSet().members(key);
-        List<A> collect = members.stream().map(m -> JSON.parseObject(m,A.class))
-            .filter(n -> n.getExpireDate().compareTo(date) > 0).sorted(
-                Comparator.comparingLong(m -> m.getExpireDate().getTime()))
-            .collect(Collectors.toList());
-
-
-        String[] values = collect.stream().skip(1).map(JSON::toJSONString)
-            .toArray(String[]::new);
-        stringRedisTemplate.delete(key);
-        stringRedisTemplate.opsForSet().add(key, values);
-        System.out.println(collect);
-
-
-    }
-
 }
