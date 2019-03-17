@@ -22,7 +22,7 @@
      > 1) handlerInterceptor          拦截器
      > 2) filter                      过滤器
      > 3) validation                  校验器
-
+     > 4) config                      mvc 配置
 * spring-boot-jwt                通过jwt的方式对登录的验证 
 * spring-boot-swagger2           通过swagger2来自动构建接口文档
 * spring-boot-tips               Spring-Boot 小技巧

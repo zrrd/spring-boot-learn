@@ -17,3 +17,4 @@ mybatis:
   #config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
   type-aliases-package:  cn.learn.springboot.bean #指定别名
+  type-handlers-package: cn.learn.springboot.handler #指定handler

@@ -1,0 +1,12 @@
+spring:
+  mvc:
+    #配置全局日期格式话方式
+    date-format: yyyy-MM-dd
+  servlet:
+    multipart:
+      #指定文件默认上传文件夹
+      location:
+      #指定单个文件的大小
+      max-file-size: 1MB
+      #指定所有文件的最大大小
+      max-request-size: 10MB

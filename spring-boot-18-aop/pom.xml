@@ -7,7 +7,6 @@
         <groupId>springboot.learn</groupId>
         <artifactId>SpringBoot</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>cn.learn.springboot</groupId>
     <artifactId>spring-boot-18-aop</artifactId>

@@ -1,0 +1,11 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.learn.springboot.mapper.GameDetailMapper">
+
+  <select id="selectById" resultType="cn.learn.springboot.bean.GameDetail">
+    SELECT *
+    FROM game_detail
+    WHERE id = #{id}
+  </select>
+</mapper>

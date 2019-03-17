@@ -7,7 +7,6 @@
         <groupId>springboot.learn</groupId>
         <artifactId>SpringBoot</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>cn.learn.springboot</groupId>
     <artifactId>spring-boot-19-mvc</artifactId>
@@ -30,6 +29,7 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
