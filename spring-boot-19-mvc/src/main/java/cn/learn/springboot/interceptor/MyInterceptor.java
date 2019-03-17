@@ -1,4 +1,4 @@
-package cn.learn.springboot.handlerInterceptor;
+package cn.learn.springboot.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
  * @date 2018/9/25
  */
 
-//HandlerInterceptorAdapter 拦截器适配器 只要实现需要实现的方法
+/**
+ * HandlerInterceptorAdapter 拦截器适配器 只要实现需要实现的方法
+ */
 @Slf4j
 public class MyInterceptor implements HandlerInterceptor {
 

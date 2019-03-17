@@ -1,4 +1,4 @@
-package cn.learn.springboot.handlerInterceptor;
+package cn.learn.springboot.interceptor;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

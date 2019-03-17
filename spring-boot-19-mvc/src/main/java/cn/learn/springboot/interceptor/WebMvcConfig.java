@@ -1,4 +1,4 @@
-package cn.learn.springboot.handlerInterceptor;
+package cn.learn.springboot.interceptor;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,10 +20,10 @@ public class WebMvcConfig implements WebMvcConfigurer {
     registry.addInterceptor(handlerInterceptor())
         //配置拦截规则
         .addPathPatterns("/**");
-    /*
-    多个拦截器一起用
-    registry.addInterceptor(handlerInterceptor2()).addPathPatterns("/**");
-    */
+
+    //多个拦截器一起用
+    //registry.addInterceptor(handlerInterceptor2()).addPathPatterns("/**");
+
   }
 
   @Bean
