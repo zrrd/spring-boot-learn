@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component("catcat")
 //定义bean的生命周期为原型 singleton 单例 prototype 原型
 // session http会话 application web工程生命周期 request 单次请求
-//@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+@Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class Cat {
 
   /**
