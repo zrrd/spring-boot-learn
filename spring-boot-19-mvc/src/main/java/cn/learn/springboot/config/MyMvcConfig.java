@@ -2,7 +2,6 @@ package cn.learn.springboot.config;
 
 import cn.learn.springboot.interceptor.MyInterceptor;
 import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.databind.DeserializationConfig;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -14,7 +13,6 @@ import java.util.Locale;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.Formatter;
 import org.springframework.format.FormatterRegistry;
-import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
