@@ -50,6 +50,7 @@ public class TestController {
 
     private String name;
     private Integer age;
+    private Date date;
   }
 
   /**
@@ -98,5 +99,12 @@ public class TestController {
 
     //404
     return ResponseEntity.status(HttpStatus.NOT_FOUND).body("");
+  }
+
+  @RequestMapping("config")
+  public A testHttpMessageConverter() {
+    A a = new A();
+    a.setDate(new Date());
+    return a;
   }
 }

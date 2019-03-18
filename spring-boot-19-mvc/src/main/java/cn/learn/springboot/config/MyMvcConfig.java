@@ -1,6 +1,13 @@
 package cn.learn.springboot.config;
 
 import cn.learn.springboot.interceptor.MyInterceptor;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.DeserializationConfig;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -9,6 +16,7 @@ import org.springframework.format.Formatter;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.validation.MessageCodesResolver;
 import org.springframework.validation.Validator;
@@ -34,7 +42,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
  * @author shaoyijiong
  * @date 2018/7/11
  */
-@SuppressWarnings("ALL")
 @Configuration
 public class MyMvcConfig extends WebMvcConfigurationSupport {
 
@@ -53,7 +60,7 @@ public class MyMvcConfig extends WebMvcConfigurationSupport {
   public void addInterceptors(InterceptorRegistry registry) {
     //将自己的登陆拦截器放进来 拦截的路径 排除的路径
     registry.addInterceptor(new MyInterceptor()).addPathPatterns("/**")
-      .excludePathPatterns("/login", "/", "index.html", "/user/login");
+        .excludePathPatterns("/login", "/", "index.html", "/user/login");
   }
 
 
@@ -72,16 +79,16 @@ public class MyMvcConfig extends WebMvcConfigurationSupport {
    */
   @Override
   public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-    configurer.favorPathExtension(true)
-      /* 不检查Accept请求头 */
-      .ignoreAcceptHeader(true)
-      .parameterName("mediaType")
-      /* 设置默认的media type */
-      .defaultContentType(MediaType.TEXT_HTML)
-      /* 请求以.html结尾的会被当成MediaType.TEXT_HTML*/
-      .mediaType("html", MediaType.TEXT_HTML)
-      /* 请求以.json结尾的会被当成MediaType.APPLICATION_JSON*/
-      .mediaType("json", MediaType.APPLICATION_JSON);
+    //configurer.favorPathExtension(true)
+    //    /* 不检查Accept请求头 */
+    //    .ignoreAcceptHeader(true)
+    //    .parameterName("mediaType")
+    //    /* 设置默认的media type */
+    //    .defaultContentType(MediaType.APPLICATION_JSON)
+    //    /* 请求以.html结尾的会被当成MediaType.TEXT_HTML*/
+    //    .mediaType("html", MediaType.TEXT_HTML)
+    //    /* 请求以.json结尾的会被当成MediaType.APPLICATION_JSON*/
+    //    .mediaType("json", MediaType.APPLICATION_JSON);
   }
 
   @Override
@@ -141,10 +148,10 @@ public class MyMvcConfig extends WebMvcConfigurationSupport {
   @Override
   public void addCorsMappings(CorsRegistry registry) {
     registry.addMapping("/**")
-      .allowedOrigins("*")
-      .allowCredentials(true)
-      .allowedMethods("GET", "POST", "DELETE", "PUT")
-      .maxAge(3600);
+        .allowedOrigins("*")
+        .allowCredentials(true)
+        .allowedMethods("GET", "POST", "DELETE", "PUT")
+        .maxAge(3600);
   }
 
   /**
@@ -170,12 +177,32 @@ public class MyMvcConfig extends WebMvcConfigurationSupport {
 
   }
 
+  class JsonObjectMapper extends ObjectMapper {
+
+    JsonObjectMapper() {
+      super();
+      this.getSerializerProvider().setNullValueSerializer(new JsonSerializer<Object>() {
+        @Override
+        public void serialize(Object o, JsonGenerator jsonGenerator,
+            SerializerProvider serializerProvider)
+            throws IOException {
+          jsonGenerator.writeString("");
+        }
+      });
+    }
+  }
+
   /**
    * 返回消息体转换 例如将 null 转化未空字符串 将时间戳转String
    */
   @Override
   public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-
+    converters.removeIf(converter -> converter instanceof MappingJackson2HttpMessageConverter);
+    MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+    JsonObjectMapper jsonObjectMapper = new JsonObjectMapper();
+    jsonObjectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
+    converter.setObjectMapper(jsonObjectMapper);
+    converters.add(converter);
   }
 
   /**

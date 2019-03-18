@@ -22,7 +22,7 @@ import org.hibernate.validator.constraints.Range;
  */
 
 @Data
-public class TestRequest {
+public class TestValidationRequest {
 
   /**
    * 不为空 @Null

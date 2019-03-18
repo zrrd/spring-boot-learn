@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2018/7/5
  */
 @RestController
-public class TestController {
+public class TestValidationController {
 
   private static ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 
