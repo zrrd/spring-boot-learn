@@ -5,10 +5,10 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import springboot.learn.rabbitmq.util.ConnectionUtil;
 
-@SuppressWarnings("all")
+@SuppressWarnings("Duplicates")
 public class Send {
 
-  private final static String EXCHANGE_NAME = "fanout_exchange_test";
+  private static final String EXCHANGE_NAME = "fanout_exchange_test";
 
   public static void main(String[] argv) throws Exception {
     // 获取到连接

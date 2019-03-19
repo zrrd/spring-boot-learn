@@ -10,7 +10,7 @@ import springboot.learn.rabbitmq.util.ConnectionUtil;
 /**
  * 消费者2
  */
-@SuppressWarnings("all")
+@SuppressWarnings("Duplicates")
 public class Recv2 {
 
   private static final String QUEUE_NAME = "direct_exchange_queue_2";

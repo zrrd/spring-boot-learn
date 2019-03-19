@@ -20,8 +20,7 @@ public class ConnectionUtil {
     factory.setUsername("leyou");
     factory.setPassword("leyou");
     // 通过工程获取连接
-    Connection connection = factory.newConnection();
-    return connection;
+    return factory.newConnection();
   }
 
 }

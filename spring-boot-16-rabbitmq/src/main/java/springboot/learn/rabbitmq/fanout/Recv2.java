@@ -7,13 +7,13 @@ import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import springboot.learn.rabbitmq.util.ConnectionUtil;
 
-@SuppressWarnings("all")
+@SuppressWarnings("Duplicates")
 // 消费者2
 public class Recv2 {
 
-  private final static String QUEUE_NAME = "fanout_exchange_queue_2";
+  private static final String QUEUE_NAME = "fanout_exchange_queue_2";
 
-  private final static String EXCHANGE_NAME = "fanout_exchange_test";
+  private static final String EXCHANGE_NAME = "fanout_exchange_test";
 
   public static void main(String[] argv) throws Exception {
     // 获取到连接

@@ -8,7 +8,7 @@ import springboot.learn.rabbitmq.util.ConnectionUtil;
 /**
  * 生产者，模拟为商品服务
  */
-@SuppressWarnings("all")
+@SuppressWarnings("Duplicates")
 public class Send {
 
   private static final String EXCHANGE_NAME = "direct_exchange_test";

@@ -10,6 +10,7 @@ import springboot.learn.rabbitmq.util.ConnectionUtil;
 
 
 // 消费者1
+@SuppressWarnings("Duplicates")
 public class Recv {
 
   private static final String QUEUE_NAME = "test_work_queue";

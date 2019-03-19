@@ -6,6 +6,7 @@ import com.rabbitmq.client.Connection;
 import springboot.learn.rabbitmq.util.ConnectionUtil;
 
 // 生产者
+@SuppressWarnings("Duplicates")
 public class Send {
 
   private final static String QUEUE_NAME = "test_work_queue";

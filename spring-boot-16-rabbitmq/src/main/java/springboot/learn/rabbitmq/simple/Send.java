@@ -8,7 +8,7 @@ import springboot.learn.rabbitmq.util.ConnectionUtil;
 /**
  * 生产者
  */
-@SuppressWarnings("all")
+@SuppressWarnings("Duplicates")
 public class Send {
 
   private static final String QUEUE_NAME = "simple_queue";

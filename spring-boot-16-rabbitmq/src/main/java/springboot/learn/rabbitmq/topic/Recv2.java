@@ -11,6 +11,7 @@ import springboot.learn.rabbitmq.util.ConnectionUtil;
 /**
  * 消费者2
  */
+@SuppressWarnings("Duplicates")
 public class Recv2 {
 
   private static final String QUEUE_NAME = "topic_exchange_queue_2";
