@@ -27,7 +27,8 @@ public class WebSocketService {
    * 用来记录在线连接数
    */
   private static AtomicInteger onlineCount = new AtomicInteger(0);
-  private static CopyOnWriteArraySet<WebSocketService> webSocketServices = new CopyOnWriteArraySet<>();
+  private static CopyOnWriteArraySet<WebSocketService> webSocketServices =
+      new CopyOnWriteArraySet<>();
 
   private Session session;
 
