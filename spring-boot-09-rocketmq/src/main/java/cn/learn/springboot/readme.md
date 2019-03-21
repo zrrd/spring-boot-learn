@@ -1,3 +1,2 @@
-demo         是简单例子  
-quick        mq的一些高级应用  
-assemble     SpringBoot与rockmq的整合尝试  
+* simple 简单的发送接受 同步 异步 单向发送 接收
+* 
