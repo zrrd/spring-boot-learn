@@ -36,11 +36,10 @@ public class OrderedConsumer {
 
         context.setAutoCommit(true);
         for (MessageExt messageExt : msgs) {
-          System.out
-              .println(Thread.currentThread().getName() +
-                  "--topic:" + messageExt.getTopic() + "-- tag:" + messageExt.getTags()
-                  + "-- queueId"
-                  + messageExt.getQueueId() + "-- body:" + new String(messageExt.getBody()));
+          System.out.println(
+              Thread.currentThread().getName() + "--topic:" + messageExt.getTopic() + "-- tag:"
+                  + messageExt.getTags() + "-- queueId" + messageExt.getQueueId() + "-- body:"
+                  + new String(messageExt.getBody()));
           try {
             Thread.sleep(messageExt.getQueueId() * 1000);
           } catch (InterruptedException e) {
