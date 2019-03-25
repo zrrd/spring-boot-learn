@@ -1,4 +1,4 @@
-package cn.learn.springboot.order;
+package cn.learn.springboot.base.order;
 
 import java.util.List;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;

@@ -1,4 +1,4 @@
-package cn.learn.springboot.filter;
+package cn.learn.springboot.base.filter;
 
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.client.producer.SendResult;

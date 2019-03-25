@@ -1,4 +1,4 @@
-package cn.learn.springboot.scheduled;
+package cn.learn.springboot.base.scheduled;
 
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.common.message.Message;

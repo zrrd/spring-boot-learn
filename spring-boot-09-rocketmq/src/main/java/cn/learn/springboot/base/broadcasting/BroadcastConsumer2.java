@@ -1,4 +1,4 @@
-package cn.learn.springboot.broadcasting;
+package cn.learn.springboot.base.broadcasting;
 
 import java.util.List;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;

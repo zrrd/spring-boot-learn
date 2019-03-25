@@ -1,4 +1,4 @@
-package cn.learn.springboot.filter;
+package cn.learn.springboot.base.filter;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

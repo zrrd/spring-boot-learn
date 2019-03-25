@@ -1,4 +1,4 @@
-package cn.learn.springboot.broadcasting;
+package cn.learn.springboot.base.broadcasting;
 
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.client.producer.SendResult;

@@ -1,4 +1,4 @@
-package cn.learn.springboot.scheduled;
+package cn.learn.springboot.base.scheduled;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

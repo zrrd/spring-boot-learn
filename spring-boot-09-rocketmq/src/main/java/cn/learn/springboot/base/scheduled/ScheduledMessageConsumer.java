@@ -1,4 +1,4 @@
-package cn.learn.springboot.scheduled;
+package cn.learn.springboot.base.scheduled;
 
 import java.util.List;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;

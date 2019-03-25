@@ -1,4 +1,4 @@
-package cn.learn.springboot.simple;
+package cn.learn.springboot.base.simple;
 
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.common.message.Message;

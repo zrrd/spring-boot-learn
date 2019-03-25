@@ -1,7 +1,6 @@
-package cn.learn.springboot.order;
+package cn.learn.springboot.base.order;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeOrderlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeOrderlyStatus;

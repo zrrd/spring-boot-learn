@@ -1,11 +1,9 @@
-package cn.learn.springboot.batch;
+package cn.learn.springboot.base.batch;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
-import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
-import org.apache.rocketmq.remoting.common.RemotingHelper;
 
 /**
  * 同一批次的消息应该具有：相同的主题，相同的waitStoreMsgOK和没有计划支持。 此外，一批邮件的总大小不应超过1MiB。
