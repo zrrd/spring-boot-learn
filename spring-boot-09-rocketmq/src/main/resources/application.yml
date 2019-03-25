@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: rocketmq-consume-demo
+rocketmq:
+  #监听的name server
+  name-server: 47.99.73.15:9876
+  producer:
+  #生产者名
+    group: my-group1
+  #默认监听的队列
+  topic: string-topic
+#topic配置
+demo:
+  rocketmq:
+    topic: string-topic
+    orderTopic: order-paid-topic
+    msgExtTopic: message-ext-topic
+    transTopic: spring-transaction-topic
