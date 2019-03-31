@@ -27,6 +27,9 @@ public class SyncProducer {
           ("Hello RocketMQ " + i).getBytes(RemotingHelper.DEFAULT_CHARSET)
       );
       //向 brokers 中的一个 broker 发送消息
+      //SendResult 有哪些属性呢 sendStatus 发送的状态 | msgId 客户端生成消息的id | messageQueue 消息进入到哪个队列中
+      //queueOffset 队列的偏移量 | transactionId 事务相关普通消息为null | offsetMsgId 服务端生成的消息id |
+      //regionId 地域信息 例如 "cn-hangzhou" | traceOn 是否启用消息轨迹(消息的链路 到达时间) |
       SendResult sendResult = producer.send(msg);
       System.out.printf("%s%n", sendResult);
     }

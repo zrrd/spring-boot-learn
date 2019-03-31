@@ -29,6 +29,7 @@ public class AsyncProducer {
           "TagA",
           "OrderID188",
           "Hello world".getBytes(RemotingHelper.DEFAULT_CHARSET));
+      //异步发送 实现一个SendCallback接口
       producer.send(msg, new SendCallback() {
         @Override
         public void onSuccess(SendResult sendResult) {

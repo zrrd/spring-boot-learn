@@ -30,6 +30,7 @@ public class OrderedProducer {
           ("Hello RocketMQ " + i).getBytes(RemotingHelper.DEFAULT_CHARSET));
       //消息队列选择器 mqs topic  brokerName queueId  写队列 与读队列可以在rocketmq 中配置
       //这里的orderId 就是select 方法中的arg 经过取模运算后 相同的orderId 发送到相同的队列中去
+      //order一般取业务的唯一值 如订单id
       SendResult sendResult = producer.send(msg, new MessageQueueSelector() {
         @Override
         public MessageQueue select(List<MessageQueue> mqs, Message msg, Object arg) {
