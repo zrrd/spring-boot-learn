@@ -30,6 +30,7 @@ public class OrderedConsumer {
       // 该服务的特点是某一个队列，在同一时间只能有一个线程访问，只有等拿到锁的线程消费成功后释放锁，其他线程才能继续消费该队列。
       // 劣势是降低了消息处理的吞吐量，当前一条消息消费出现问题时，会阻塞后续的流程。
       // 一个队列同一时间只有一个消费者  本地与远端都是
+      // 实现方式 两把锁  broker 的 queue 一把锁保证只有一个消费者消费 本地一把锁 保证线程池中只有一个线程消费消息
       @Override
       public ConsumeOrderlyStatus consumeMessage(List<MessageExt> msgs,
           ConsumeOrderlyContext context) {
