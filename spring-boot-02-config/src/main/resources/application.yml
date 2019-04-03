@@ -11,7 +11,10 @@ person:
   dog:
     name: 小狗
     age: 5
-
+  #对象数组
+  dogs:
+    - {name: a,age: 1}
+    - {name: b,age: 2}
 
 
 
