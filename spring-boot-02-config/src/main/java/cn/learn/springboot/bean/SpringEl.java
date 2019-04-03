@@ -1,5 +1,6 @@
 package cn.learn.springboot.bean;
 
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -9,13 +10,14 @@ import org.springframework.stereotype.Component;
  * @author shaoyijiong
  * @date 2019/3/18
  */
+@Data
 @Component
 public class SpringEl {
 
   /**
    * 注入配置属性
    */
-  @Value("${person.lastName}")
+  @Value("${person.last-name}")
   private String lastName;
 
   /**
