@@ -19,6 +19,7 @@ public class TransactionProducer {
 
     TransactionMQProducer producer = new TransactionMQProducer("TransactionProducer");
     producer.setNamesrvAddr("47.99.73.15:9876");
+    //注册回调接口
     producer.setTransactionListener(transactionListener);
     producer.start();
 
