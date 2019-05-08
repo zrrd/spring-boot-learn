@@ -1,5 +1,6 @@
 package cn.learn.springboot.resttemplate.config;
 
+import java.time.Duration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +21,7 @@ public class RestTemplateConfig {
 
   @Bean
   public RestTemplate restTemplate() {
-    return builder.build();
+    return builder.setReadTimeout(Duration.ofSeconds(3)).setConnectTimeout(Duration.ofSeconds(3)).build();
   }
 
 }
