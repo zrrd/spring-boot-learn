@@ -33,7 +33,7 @@ public class AppConfig {
 
   /**
    * 如果没有 @Bena("user") Spring 容器中的默认名字为方法的名字 也可以用 @Bean({"user1","user"}) 指定多个名称
-   * 根据环境觉得是否装配@Profile
+   * 根据环境觉得是否装配@Profile 也可以取反 !dev
    */
   @Profile("dev")
   @Bean("user")

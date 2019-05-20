@@ -179,4 +179,21 @@ public class RedisTests {
             }
         });
     }
+
+    @Test
+    public void testBatch() {
+        //Map<String, String> hashMap = new HashMap<>();
+        //hashMap.put("1", "1");
+        //hashMap.put("2", "1");
+        //hashMap.put("3", "1");
+        //hashMap.put("4", "1");
+        //hashMap.put("5", "1");
+        //hashMap.put("6", "1");
+        //hashMap.put("7", "1");
+        //hashMap.put("8", "1");
+        //stringRedisTemplate.opsForHash().putAll("batch", hashMap);
+        //System.out.println(stringRedisTemplate.<String, String>opsForHash()
+        //    .multiGet("batch", Arrays.asList("10", "1", "2", "15")));
+        stringRedisTemplate.opsForHash().increment("batch", "ad", 1);
+    }
 }
