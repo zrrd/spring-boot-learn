@@ -3,6 +3,7 @@ package cn.learn.springboot;
 import cn.learn.springboot.bean.Game;
 import cn.learn.springboot.service.GameService;
 import com.alibaba.fastjson.JSONObject;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -54,6 +55,8 @@ public class RedisTests {
 
         //这里设置redis的失效时间为3分钟
         stringRedisTemplate.opsForValue().set("NAME:02", "王五", 3, TimeUnit.MINUTES);
+
+        stringRedisTemplate.opsForValue().setIfAbsent(toString(), toString(), Duration.ofMinutes(100));
 
         //没有队友的 key 才放进去 set是替换
         boolean exist = stringRedisTemplate.opsForValue().setIfAbsent("NAME:02", "王五");

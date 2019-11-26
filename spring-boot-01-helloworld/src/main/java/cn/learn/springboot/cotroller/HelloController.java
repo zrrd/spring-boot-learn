@@ -2,8 +2,10 @@ package cn.learn.springboot.cotroller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,4 +42,12 @@ public class HelloController {
     public void a() {
         int a = 9 / 0;
     }
+
+
+  @RequestMapping("smsBack")
+  public String b(@RequestBody List<SmsReportDto> smsReportDtos) {
+    System.out.println(smsReportDtos.get(0));
+    return "success";
+  }
+
 }

@@ -14,7 +14,7 @@ public class UserControllerTest {
   private final WebTestClient client = WebTestClient.bindToServer().baseUrl("http://localhost:8080").build();
 
   @Test
-  public void testCreateUser() throws Exception {
+  public void testCreateUser() {
     final User user = new User();
     user.setName("Test");
     user.setEmail("test@example.org");

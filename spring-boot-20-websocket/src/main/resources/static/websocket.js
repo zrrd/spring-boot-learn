@@ -1,7 +1,7 @@
 let websocket = null;
 //判断当前浏览器是否支持
 if ('WebSocket' in window) {
-    websocket = new WebSocket("ws://localhost:8080/ws")
+    websocket = new WebSocket("ws://localhost:8080/crm/wstest")
 } else {
     alert('not support websocket')
 }
