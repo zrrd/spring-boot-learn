@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    username: root
+    password: 123456
+    #配置链接参数的时候要注意时区的问题
+    url: jdbc:mysql://47.99.73.15:3306/games?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=CTT
+    #指定连接池类型  不配置的话Spring默认为HikariDataSource
+    type: com.zaxxer.hikari.HikariDataSource
+logging:
+  level:
+    cn.learn: debug

@@ -51,6 +51,7 @@
         <module>spring-boot-swagger2</module>
         <module>spring-boot-tips</module>
         <module>spring-boot-21-webflux</module>
+        <module>spring-boot-06-data-mybatis-plus</module>
     </modules>
 
     <build>
