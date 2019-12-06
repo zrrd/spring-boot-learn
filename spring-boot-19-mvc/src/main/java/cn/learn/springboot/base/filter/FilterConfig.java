@@ -1,4 +1,4 @@
-package cn.learn.springboot.filter;
+package cn.learn.springboot.base.filter;
 
 import javax.servlet.Filter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
