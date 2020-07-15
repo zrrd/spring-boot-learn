@@ -1,0 +1,22 @@
+spring:
+  profiles:
+    active: dev
+  #kafka:
+    #bootstrap-servers: 172.16.0.254:9092,172.16.0.254:19092,172.16.0.254:29092
+    #bootstrap-servers: 192.168.20.161:9092,192.168.20.162:9092,192.168.20.163:9092
+  cloud:
+    stream:
+      bindings:
+        hello-kafka:
+          destination: HELLO_KAFKA
+          content-type: application/json
+          group: demo01-consumer-group
+      kafka:
+        binder:
+          brokers: 192.168.20.161:9092,192.168.20.162:9092,192.168.20.163:9092
+        # Kafka 自定义 Binding 配置项，对应 KafkaBindingProperties Map
+        bindings:
+          demo01-output:
+            # Kafka Producer 配置项，对应 KafkaProducerProperties 类
+            producer:
+              sync: true # 是否同步发送消息，默认为 false 异步。
