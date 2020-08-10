@@ -12,19 +12,18 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class MailTests {
 
-	@Autowired
-	private JavaMailSender javaMailSender;
+  @Autowired
+  private JavaMailSender javaMailSender;
 
-	@Test
-	public void sendMail() {
-		SimpleMailMessage message = new SimpleMailMessage();
-		//邮件设置
-		message.setSubject("你好");
-		message.setText("你好啊");
-		message.setTo("fantasy9417@163.com");
-		message.setFrom("935457623@qq.com");
-
-		javaMailSender.send(message);
-	}
+  @Test
+  public void sendMail() {
+    SimpleMailMessage message = new SimpleMailMessage();
+    //邮件设置
+    message.setSubject("你好");
+    message.setText("你好啊");
+    message.setTo("fantasy9417@163.com");
+    message.setFrom("935457623@qq.com");
+    javaMailSender.send(message);
+  }
 
 }
