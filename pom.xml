@@ -54,7 +54,16 @@
         <module>spring-boot-21-webflux</module>
         <module>spring-boot-06-data-mybatis-plus</module>
         <module>spring-boot-22-kafka</module>
+        <module>spring-boot-23-xxl-job</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>

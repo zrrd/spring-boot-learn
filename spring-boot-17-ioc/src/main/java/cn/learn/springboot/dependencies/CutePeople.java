@@ -23,12 +23,7 @@ public class CutePeople implements People, BeanNameAware, BeanFactoryAware,
     ApplicationContextAware, InitializingBean, DisposableBean {
 
   /**
-   * <pre>
-   * 如果Spring 容器中有两个相同的话 就会报错
-   * 解决方法 将Animal 的名字改成dog或者rabbit
-   * 在 dog 或者 rabbit 上添加@Primary注解 优先
-   * 通过@Qualifier指定名字 消除歧义
-   * <pre/>
+   * 如果Spring 容器中有两个相同的话 就会报错 解决方法 将Animal 的名字改成dog或者rabbit 在 dog 或者 rabbit 上添加@Primary注解 优先 通过@Qualifier指定名字 消除歧义
    */
   @Qualifier("dog")
   @Autowired
@@ -70,7 +65,7 @@ public class CutePeople implements People, BeanNameAware, BeanFactoryAware,
   }
 
   @Override
-  public void destroy() throws Exception {
+  public void destroy() {
     System.out.println("得到DisposableBean");
   }
 
