@@ -1,8 +1,10 @@
 import cn.learn.springboot.Go;
-import cn.learn.springboot.Person;
+import cn.learn.springboot.bean.Person;
 import com.alibaba.fastjson.JSON;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -23,8 +25,8 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @date 2021/2/25
  */
 @Slf4j
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = Go.class)
+//@RunWith(SpringRunner.class)
+//@SpringBootTest(classes = Go.class)
 public class SpELExpressionParserTest {
 
   /**
@@ -142,5 +144,17 @@ public class SpELExpressionParserTest {
     String result = expression.getValue(context,String.class);
     log.info("testBeanProperties result:{}", result);
   }
-  
+
+
+  private static final Pattern pattern = Pattern.compile("\\{.*?}");
+
+
+  @Test
+  public void match() {
+    String log = "你好啊{#p.name},年龄{#p.age},养了一只{#c.category}的猫";
+    Matcher matcher = pattern.matcher(log);
+    while (matcher.find()) {
+      System.out.println(matcher.group());
+    }
+  }
 }

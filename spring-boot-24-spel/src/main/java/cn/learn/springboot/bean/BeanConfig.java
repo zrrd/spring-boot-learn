@@ -1,4 +1,4 @@
-package cn.learn.springboot;
+package cn.learn.springboot.bean;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

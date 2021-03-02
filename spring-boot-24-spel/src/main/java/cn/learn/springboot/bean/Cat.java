@@ -1,4 +1,4 @@
-package cn.learn.springboot;
+package cn.learn.springboot.bean;
 
 import lombok.Data;
 
@@ -14,5 +14,5 @@ public class Cat {
   /**
    * 品类
    */
-  private String category;
+  private String category = "bosi";
 }
