@@ -3,6 +3,7 @@ package cn.learn.springboot.log;
 import java.lang.reflect.Method;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.expression.BeanFactoryResolver;
+import org.springframework.context.expression.MethodBasedEvaluationContext;
 import org.springframework.core.DefaultParameterNameDiscoverer;
 import org.springframework.core.ParameterNameDiscoverer;
 import org.springframework.expression.EvaluationContext;
@@ -35,8 +36,8 @@ public class LogOperationExpressionEvaluator {
   public EvaluationContext createEvaluationContext(Method method, Object[] args, Object target, Class<?> targetClass,
       Method targetMethod, @Nullable Object result, @Nullable BeanFactory beanFactory) {
     LogSpelExpressionRootObject rootObject = new LogSpelExpressionRootObject(method, args, target, targetClass);
-    LogEvaluationContext evaluationContext =
-        new LogEvaluationContext(rootObject, targetMethod, args, parameterNameDiscoverer);
+    MethodBasedEvaluationContext evaluationContext =
+        new MethodBasedEvaluationContext(rootObject, targetMethod, args, parameterNameDiscoverer);
     evaluationContext.setVariable(RESULT_VARIABLE, result);
     if (beanFactory != null) {
       evaluationContext.setBeanResolver(new BeanFactoryResolver(beanFactory));
@@ -51,6 +52,8 @@ public class LogOperationExpressionEvaluator {
    * @param context SpEL 上下文
    */
   public String getLogMessage(String expression, EvaluationContext context) {
+    String method = parser.parseExpression("method.toString()").getValue(context, String.class);
+    String targetClass = parser.parseExpression("targetClass.toString()").getValue(context, String.class);
     return parser.parseExpression(expression, templateParserContext).getValue(context, String.class);
   }
 
