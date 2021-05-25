@@ -54,12 +54,13 @@ public class LogAspect {
       // 保存日志
       init();
       MethodSignature signature = (MethodSignature) pjp.getSignature();
+      // 判断是是否式aop 获取实际方法
       Method targetMethod = !Proxy.isProxyClass(pjp.getTarget().getClass())
           ? AopUtils.getMostSpecificMethod(signature.getMethod(), pjp.getTarget().getClass()) : signature.getMethod();
       EvaluationContext context = expressionEvaluator
           .createEvaluationContext(signature.getMethod(), pjp.getArgs(), pjp.getTarget(), pjp.getTarget().getClass(),
               targetMethod, proceed, beanFactory);
-      expressionEvaluator.getLogMessage(operationLog.value(), context);
+      log.info(expressionEvaluator.getLogMessage(operationLog.value(), context));
     } catch (Exception e) {
       // 日志记录不影响记录
       log.error("log record parse exception", e);

@@ -1,6 +1,5 @@
 package cn.learn.springboot.bean;
 
-import javax.validation.constraints.Max;
 import lombok.Data;
 
 /**
@@ -19,7 +18,6 @@ public class Person {
   /**
    * 年龄
    */
-  @Max(33)
   private Integer age = 12;
 
 }
