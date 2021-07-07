@@ -103,6 +103,7 @@ public class SpELExpressionParserTest {
     Boolean result1 = parser.parseExpression(expression1).getValue(Boolean.class);
     String expression2 = "2>1 and (NOT true or NOT false)";
     Boolean result2 = parser.parseExpression(expression2).getValue(Boolean.class);
+    log.info("end");
   }
 
   /**
@@ -302,8 +303,8 @@ public class SpELExpressionParserTest {
     // 安全导航运算符
     Person person = new Person();
     context.setVariable("person", null);
-    //String name1 = parser.parseExpression("#person?.name").getValue(context, String.class);
-    String name1 = parser.parseExpression("#person.name").getValue(context, String.class);
+    String name1 = parser.parseExpression("#person?.name").getValue(context, String.class);
+    //String name1 = parser.parseExpression("#person.name").getValue(context, String.class);
     log.info("end");
   }
 
@@ -347,6 +348,7 @@ public class SpELExpressionParserTest {
 
   @Test
   public void test17() {
+    // #{dss} dd #{}
     class TemplateParserContext implements ParserContext {
 
       public String getExpressionPrefix() {
@@ -372,8 +374,7 @@ public class SpELExpressionParserTest {
     list.add(p2);
     StandardEvaluationContext context = new StandardEvaluationContext(list);
     String value = parser.parseExpression(
-        "第一个人为 #{#root[0].name} 第二个人为 #{#root[1].name}",
-        new TemplateParserContext()).getValue(context,String.class);
+        "'第一个人为'+#root[0].name+'第二个人为'+#root[1].name").getValue(context,String.class);
     log.info("end");
   }
 
@@ -511,5 +512,12 @@ public class SpELExpressionParserTest {
     Expression expression = parser.parseExpression("personList.![age]");
     Set result = expression.getValue(context, Set.class);
     log.info("testBeanProperties result:{}", result);
+  }
+
+  @Test
+  public void b() {
+    StandardEvaluationContext sec = new StandardEvaluationContext();
+    sec.setVariable("","");
+    String value = parser.parseExpression("#orgId").getValue(sec, String.class);
   }
 }

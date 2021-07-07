@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
   @RequestMapping("test")
-  //@OperationLog("姓名为#{#person.name},年龄#{#person.age},养了一只#{#cat.category}的猫 卖给了 #{#result.name}的人")
+  @OperationLog("姓名为#{#person.name},年龄#{#person.age},养了一只#{#cat.category}的猫 卖给了 #{#result.name}的人")
   //@OperationLog("姓名为#{#a0.name},年龄#{#a0.age},养了一只#{#a1.category}的猫 卖给了#{#result.name}的人")
-  @OperationLog("姓名为#{#p0.name},年龄#{#p0.age},养了一只#{#p1.category}的猫 卖给了#{#result.name}的人")
+  //@OperationLog("姓名为#{#p0.name},年龄#{#p0.age},养了一只#{#p1.category}的猫 卖给了#{#result.name}的人")
   public Person test(Person person, Cat cat) {
     Person p = new Person();
     p.setName("小明");
