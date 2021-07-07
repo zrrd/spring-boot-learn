@@ -55,6 +55,7 @@
         <module>spring-boot-22-kafka</module>
         <module>spring-boot-23-xxl-job</module>
         <module>spring-boot-24-spel</module>
+        <module>spring-boot-25-unit-test</module>
     </modules>
 
     <dependencies>
