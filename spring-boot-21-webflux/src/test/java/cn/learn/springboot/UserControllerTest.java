@@ -1,4 +1,4 @@
-package cn.learn.springboot.test;
+package cn.learn.springboot;
 
 import cn.learn.springboot.domain.User;
 import org.junit.jupiter.api.Test;
