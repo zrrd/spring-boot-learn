@@ -1,6 +1,6 @@
 package cn.learn.springboot.model;
 
-import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Getter;
@@ -25,9 +25,4 @@ public class Steam extends Model<Steam> {
 
   private Date createTime;
 
-
-  @Override
-  protected Serializable pkVal() {
-    return id;
-  }
 }

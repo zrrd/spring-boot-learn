@@ -8,10 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2021/2/23
  */
 @SpringBootApplication
-public class Go {
+public class UnitTestApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(Go.class, args);
+    SpringApplication.run(UnitTestApplication.class, args);
   }
 
 }

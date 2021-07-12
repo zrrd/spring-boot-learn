@@ -49,7 +49,6 @@
     <module>spring-boot-19-mvc</module>
     <module>spring-boot-20-websocket</module>
     <module>spring-boot-jwt</module>
-    <module>spring-boot-swagger2</module>
     <module>spring-boot-tips</module>
     <module>spring-boot-21-webflux</module>
     <module>spring-boot-22-kafka</module>
@@ -127,6 +126,21 @@
         <groupId>com.xuxueli</groupId>
         <artifactId>xxl-job-core</artifactId>
         <version>2.2.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars</groupId>
+        <artifactId>jquery</artifactId>
+        <version>3.1.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars</groupId>
+        <artifactId>bootstrap</artifactId>
+        <version>4.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.pagehelper</groupId>
+        <artifactId>pagehelper-spring-boot-starter</artifactId>
+        <version>1.2.13</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

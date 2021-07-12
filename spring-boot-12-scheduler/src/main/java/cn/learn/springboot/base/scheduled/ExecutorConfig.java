@@ -5,7 +5,6 @@ import java.util.Optional;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadFactory;
-import javax.annotation.Nullable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.SchedulingConfigurer;
@@ -18,7 +17,7 @@ import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 public class ExecutorConfig implements SchedulingConfigurer {
 
   @Override
-  public void configureTasks(@Nullable ScheduledTaskRegistrar taskRegistrar) {
+  public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {
     Optional.ofNullable(taskRegistrar).ifPresent(a -> a.setScheduler(taskExecutor()));
   }
 

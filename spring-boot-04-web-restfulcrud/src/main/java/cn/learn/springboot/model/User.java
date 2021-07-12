@@ -1,9 +1,7 @@
 package cn.learn.springboot.model;
 
-import com.baomidou.mybatisplus.activerecord.Model;
 
-import java.io.Serializable;
-
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,9 +24,4 @@ public class User extends Model<User> {
   private Double money;
 
   private String prefer;
-
-  @Override
-  protected Serializable pkVal() {
-    return id;
-  }
 }

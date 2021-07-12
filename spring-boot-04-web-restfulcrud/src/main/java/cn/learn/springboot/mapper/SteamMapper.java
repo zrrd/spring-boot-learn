@@ -1,8 +1,8 @@
 package cn.learn.springboot.mapper;
 
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
 import cn.learn.springboot.model.Steam;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
  * @author win

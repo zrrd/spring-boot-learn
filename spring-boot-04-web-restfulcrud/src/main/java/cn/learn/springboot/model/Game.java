@@ -1,7 +1,6 @@
 package cn.learn.springboot.model;
 
-import com.baomidou.mybatisplus.activerecord.Model;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,11 +26,6 @@ public class Game extends Model<Game> {
   private Double score;
 
   private String image;
-
-  @Override
-  protected Serializable pkVal() {
-    return id;
-  }
 
   public Game() {
   }
