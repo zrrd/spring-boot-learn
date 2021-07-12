@@ -1,2 +1,16 @@
 server:
   port: 9525
+spring:
+  #数据库链接池 druid配置
+  datasource:
+    username: root
+    password: 123456
+    #配置链接参数的时候要注意时区的问题
+    url: jdbc:mysql://47.99.73.15:3306/games?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=CTT
+    #指定连接池类型  不配置的话Spring默认为HikariDataSource
+    type: com.zaxxer.hikari.HikariDataSource
+#mybatis-plus 配置
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*Mapper.xml
+  type-aliases-package: cn.learn.springboot.entity
+  type-enums-package: cn.learn.springboot.entity.ienum

@@ -10,7 +10,7 @@ CREATE TABLE `game`  (
   `name` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '游戏名',
   `price` decimal(10, 2) NULL DEFAULT NULL COMMENT '游戏价格',
   `publish_date` date NULL DEFAULT NULL COMMENT '发售日期',
-  `score` double(2, 0) NULL DEFAULT NULL COMMENT '游戏评分',
+  `score` double(3, 1) NULL DEFAULT NULL COMMENT '游戏评分',
   `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '图片地址',
   `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '游戏类型 rpg action shooter ',
   `status` tinyint(0) NOT NULL COMMENT '状态 1 - 在售 9 - 删除 0 - 未发售',
@@ -32,10 +32,10 @@ CREATE TABLE `steam`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '游戏库' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Table structure for user
+-- Table structure for steam_user
 -- ----------------------------
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user`  (
+DROP TABLE IF EXISTS `steam_user`;
+CREATE TABLE `steam_user`  (
   `id` int(0) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户姓名',
   `game_num` int(0) UNSIGNED NOT NULL DEFAULT 0 COMMENT '有游戏数',
