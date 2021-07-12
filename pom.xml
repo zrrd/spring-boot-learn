@@ -55,6 +55,7 @@
     <module>spring-boot-23-xxl-job</module>
     <module>spring-boot-24-spel</module>
     <module>spring-boot-25-unit-test</module>
+    <module>spring-boot-common</module>
   </modules>
 
   <dependencies>
@@ -141,6 +142,11 @@
         <groupId>com.github.pagehelper</groupId>
         <artifactId>pagehelper-spring-boot-starter</artifactId>
         <version>1.2.13</version>
+      </dependency>
+      <dependency>
+        <groupId>springboot.learn</groupId>
+        <artifactId>spring-boot-common</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
