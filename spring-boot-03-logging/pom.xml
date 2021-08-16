@@ -13,7 +13,7 @@
 
   <parent>
     <groupId>springboot.learn</groupId>
-    <artifactId>SpringBoot</artifactId>
+    <artifactId>spring-boot-learn</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
