@@ -27,7 +27,9 @@
 * spring-boot-21-webflux         web 反应式编程
 * spring-boot-22-kafka           springboot 中 kafka 的使用
 * spring-boot-23-xxl-job         springboot 中集成 xxl-job
-* spring-boot-24-SpEL            springboot 中 SpEL 的简单使用  
+* spring-boot-24-SpEL            springboot 中 SpEL 的简单使用
+* spring-boot-25-unit-test       spring中单元测试
+* spring-boot-26-dynamic-tp      通过配置的方式动态设置线程池 https://github.com/dromara/dynamic-tp
 * spring-boot-jwt                通过jwt的方式对登录的验证 
 * spring-boot-swagger2           通过swagger2来自动构建接口文档
 * spring-boot-tips               Spring-Boot 小技巧

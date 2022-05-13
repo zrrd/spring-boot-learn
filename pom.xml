@@ -56,6 +56,7 @@
     <module>spring-boot-24-spel</module>
     <module>spring-boot-25-unit-test</module>
     <module>spring-boot-common</module>
+    <module>spring-boot-26-dynamic-tp</module>
   </modules>
 
   <dependencies>
