@@ -33,7 +33,8 @@
         // 通过替换下面这个配置来生成不同页面
         let amisJSON = {
           type: 'page',
-          body: 'Hello World!'
+          initApi: "http://127.0.0.1:8080/data",
+          body: "date is ${date}"
         };
         let amisScoped = amis.embed('#root', amisJSON);
       })();
