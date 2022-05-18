@@ -57,6 +57,7 @@
     <module>spring-boot-25-unit-test</module>
     <module>spring-boot-common</module>
     <module>spring-boot-26-dynamic-tp</module>
+      <module>spring-boot-27-amis</module>
   </modules>
 
   <dependencies>
