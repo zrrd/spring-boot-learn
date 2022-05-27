@@ -1,6 +1,7 @@
 package cn.learn.spring.amis.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -10,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class TestController {
 
-    @RequestMapping("index")
-    public String go() {
-        return "index";
+    @RequestMapping("/page/{page}")
+    public String go(@PathVariable(name = "page") String page) {
+        return page;
     }
 }

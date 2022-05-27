@@ -28,4 +28,3 @@ mvnw.*
 /dist/
 /nbdist/
 /.nb-gradle/
-/spring-boot-27-amis/src/main/resources/static/amis/
